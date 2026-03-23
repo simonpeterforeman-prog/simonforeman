@@ -110,7 +110,7 @@ body {
   border-radius: 50%;
   background: rgba(255,255,255,0.5);
   pointer-events: none;
-  z-index: 9999;
+  z-index: 10001;
   transform: translate(-50%, -50%);
 }
 #cursor-ring {
@@ -119,7 +119,7 @@ body {
   border-radius: 50%;
   border: 1px solid rgba(255,255,255,0.12);
   pointer-events: none;
-  z-index: 9998;
+  z-index: 10000;
   transform: translate(-50%, -50%);
 }
 
@@ -682,17 +682,24 @@ body {
 #vibecoded-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.95);
+  background: rgba(0,0,0,0.85);
   z-index: 9999;
   display: none;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
-#vibecoded-modal.open { display: flex; flex-direction: column; align-items: center; justify-content: center; }
+#vibecoded-modal.open { display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: none; }
+.vibecoded-content {
+  background: rgba(10,10,10,0.97);
+  border: 1px solid rgba(200,170,120,0.1);
+  border-radius: 16px;
+  position: relative;
+  cursor: none;
+}
 #vibecoded-modal .modal-close {
-  position: fixed;
-  top: 20px;
-  right: 24px;
+  position: absolute;
+  top: 16px;
+  right: 20px;
   background: none;
   border: none;
   color: rgba(200,170,120,0.6);
@@ -705,38 +712,48 @@ body {
 #vibecoded-modal .modal-close:hover { color: rgba(200,170,120,1); }
 .vibecoded-content {
   text-align: center;
-  max-width: 1000px;
+  max-width: 600px;
   width: 90%;
-  padding: 60px 0 40px;
+  padding: 48px 40px 40px;
 }
 .vibecoded-heading {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   font-size: 1rem;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.45);
   letter-spacing: 0.08em;
-  margin-bottom: 28px;
+  margin-bottom: 0;
 }
-.vibecoded-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
+.vibecoded-photos {
+  position: relative;
+  width: 360px;
+  height: 160px;
+  margin: 24px auto 8px;
 }
-.vibecoded-grid img {
-  width: 100%;
+.vibecoded-photos img {
+  position: absolute;
+  width: 180px;
   border-radius: 4px;
   border: 1px solid rgba(200,170,120,0.12);
-  opacity: 0.8;
-  transition: opacity 0.3s;
+  opacity: 1;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+  transition: transform 0.3s;
 }
-.vibecoded-grid img:hover { opacity: 1; }
+.vibecoded-photos img:hover { transform: scale(1.04) !important; z-index: 10; }
+.vibecoded-photos img:nth-child(1) { top: 10px; left: 60px; transform: rotate(-2deg); z-index: 4; }
+.vibecoded-photos img:nth-child(2) { top: 20px; left: 0; transform: rotate(-7deg); z-index: 2; }
+.vibecoded-photos img:nth-child(3) { top: 5px; left: 30px; transform: rotate(3deg); z-index: 3; }
+.vibecoded-photos img:nth-child(4) { top: 25px; left: 140px; transform: rotate(6deg); z-index: 1; }
+.vibecoded-photos img:nth-child(5) { top: 8px; left: 70px; transform: rotate(-1deg); z-index: 5; }
 .vibecoded-after {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 1rem;
-  color: rgba(200,170,120,0.6);
-  letter-spacing: 0.08em;
-  margin-top: 28px;
+  font-size: 1.6rem;
+  color: rgba(200,170,120,0.7);
+  letter-spacing: 0.04em;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 1.3;
 }
 .vibecoded-sub {
   font-family: 'Nunito', sans-serif;
@@ -745,12 +762,12 @@ body {
   color: rgba(255,255,255,0.4);
   line-height: 1.7;
   max-width: 480px;
-  margin: 16px auto 0;
+  margin: 6px auto 0;
   letter-spacing: 0.02em;
 }
 .vibecoded-archive-link {
   display: inline-block;
-  margin-top: 24px;
+  margin-top: 16px;
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
   font-size: 0.55rem;
@@ -768,9 +785,10 @@ body {
   border-color: rgba(200,170,120,0.5);
 }
 @media (max-width: 768px) {
-  .vibecoded-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .vibecoded-content { padding: 40px 24px 32px; }
+  .vibecoded-photos { width: 280px; height: 200px; }
+  .vibecoded-photos img { width: 150px; }
+  .vibecoded-after { font-size: 1.3rem; }
 }
 .gallery-grid {
   display: block;
@@ -9261,19 +9279,19 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
 
 <!-- Vibecoded Before/After Modal -->
 <div id="vibecoded-modal">
-  <button class="modal-close" id="vibecoded-modal-close">&times;</button>
   <div class="vibecoded-content">
-    <p class="vibecoded-heading">The original, built on Squarespace.</p>
-    <div class="vibecoded-grid">
-      <img src="contact/before1.jpg" alt="Old site — Decalogue" />
-      <img src="contact/before2.jpg" alt="Old site — Grasses" />
-      <img src="contact/before3.jpg" alt="Old site — Walk-Throughs" />
-      <img src="contact/before4.jpg" alt="Old site — Rwanda" />
-      <img src="contact/before5.jpg" alt="Old site — Raps" />
+    <button class="modal-close" id="vibecoded-modal-close">&times;</button>
+    <p class="vibecoded-heading">The before.</p>
+    <div class="vibecoded-photos">
+      <img src="contact/before1.jpg" alt="" />
+      <img src="contact/before2.jpg" alt="" />
+      <img src="contact/before3.jpg" alt="" />
+      <img src="contact/before4.jpg" alt="" />
+      <img src="contact/before5.jpg" alt="" />
     </div>
-    <p class="vibecoded-after">You're looking at the after.</p>
-    <p class="vibecoded-sub">The documentation was always there. The tools to turn it into something like this weren't. Excited about what comes next.</p>
-    <a href="https://web.archive.org/web/20250410021601/https://www.simonforeman.com/" target="_blank" rel="noopener" class="vibecoded-archive-link">Visit the original on the Wayback Machine</a>
+    <p class="vibecoded-after">This is the after.</p>
+    <p class="vibecoded-sub">Much of the same content, vibecoded into something new. The tools finally caught up.</p>
+    <a href="https://web.archive.org/web/20250410021601/https://www.simonforeman.com/" target="_blank" rel="noopener" class="vibecoded-archive-link">Visit the old site</a>
   </div>
 </div>
 
