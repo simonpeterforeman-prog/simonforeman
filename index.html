@@ -8,7 +8,7 @@
 <meta name="author" content="Simon Foreman">
 <link rel="canonical" href="https://www.simonforeman.com/">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
 <!-- Open Graph -->
@@ -2426,6 +2426,16 @@ body {
   background: rgba(200,170,120,0.12);
   color: rgba(200,170,120,0.9);
 }
+.pw-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(200,170,120,0.2);
+  border-top-color: rgba(200,170,120,0.7);
+  border-radius: 50%;
+  animation: pw-spin 0.6s linear infinite;
+}
+@keyframes pw-spin { to { transform: rotate(360deg); } }
 .pw-request-msg {
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
@@ -4097,8 +4107,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
       <div class="pw-request-wrap">
         <button id="pw-request-toggle" class="pw-request-toggle">Request access</button>
-        <form id="pw-request-form" class="pw-request-form" name="password-request" method="POST" data-netlify="true" hidden>
-          <input type="hidden" name="form-name" value="password-request" />
+        <form id="pw-request-form" class="pw-request-form" hidden>
           <div class="pw-request-fields">
             <input type="email" id="pw-request-email" name="email" class="pw-request-input" placeholder="Your email" required />
             <button type="submit" class="pw-request-submit">Send</button>
@@ -4851,28 +4860,28 @@ document.getElementById('nav-contact').addEventListener('click', function(e) {
     }
     var submitBtn = form.querySelector('.pw-request-submit');
     submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending...';
-    fetch('/', {
+    submitBtn.innerHTML = '<span class="pw-spinner"></span>';
+    fetch('https://formspree.io/f/mojkgjep', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: 'form-name=password-request&email=' + encodeURIComponent(email)
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({ email: email })
     }).then(function(res) {
       if (res.ok) {
         msg.textContent = 'Request sent — check your inbox soon.';
         msg.hidden = false;
-        submitBtn.textContent = 'Resend';
+        submitBtn.innerHTML = 'Resend';
         submitBtn.disabled = false;
       } else {
         msg.textContent = 'Something went wrong. Try emailing directly.';
         msg.hidden = false;
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Send';
+        submitBtn.innerHTML = 'Send';
       }
     }).catch(function() {
       msg.textContent = 'Something went wrong. Try emailing directly.';
       msg.hidden = false;
       submitBtn.disabled = false;
-      submitBtn.textContent = 'Send';
+      submitBtn.innerHTML = 'Send';
     });
   });
 })();
