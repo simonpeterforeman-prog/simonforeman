@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.simonforeman.com/sitemap.xml
+Sitemap: https://simonforeman.com/sitemap.xml
