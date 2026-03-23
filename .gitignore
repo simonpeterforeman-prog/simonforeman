@@ -1,0 +1,21 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Dev files
+serve.py
+*.bak
+index.html.bak
+
+# Old screenshots (not needed in repo)
+Porfolio/
+
+# Archive (old versions)
+archive/
+
+# Claude project memory (stays local)
+.claude/
+memory/
+
+# Deploy folder (built from source, not tracked)
+deploy/
