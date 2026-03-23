@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- transparent background -->
+  <!-- Kaleidoscope: 10 triangular facets radiating from center -->
+  <g transform="translate(256,256)">
+    <!-- Outer facets - alternating gold tones -->
+    <polygon points="0,0 0,-220 68,-209" fill="rgba(200,170,120,0.9)"/>
+    <polygon points="0,0 68,-209 130,-176" fill="rgba(180,150,100,0.6)"/>
+    <polygon points="0,0 130,-176 176,-130" fill="rgba(200,170,120,0.9)"/>
+    <polygon points="0,0 176,-130 209,-68" fill="rgba(180,150,100,0.6)"/>
+    <polygon points="0,0 209,-68 220,0" fill="rgba(200,170,120,0.9)"/>
+    <polygon points="0,0 220,0 209,68" fill="rgba(180,150,100,0.6)"/>
+    <polygon points="0,0 209,68 176,130" fill="rgba(200,170,120,0.9)"/>
+    <polygon points="0,0 176,130 130,176" fill="rgba(180,150,100,0.6)"/>
+    <polygon points="0,0 130,176 68,209" fill="rgba(200,170,120,0.9)"/>
+    <polygon points="0,0 68,209 0,220" fill="rgba(180,150,100,0.6)"/>
+    <!-- Mirror half -->
+    <polygon points="0,0 0,-220 -68,-209" fill="rgba(180,150,100,0.6)"/>
+    <polygon points="0,0 -68,-209 -130,-176" fill="rgba(200,170,120,0.9)"/>
+    <polygon points="0,0 -130,-176 -176,-130" fill="rgba(180,150,100,0.6)"/>
+    <polygon points="0,0 -176,-130 -209,-68" fill="rgba(200,170,120,0.9)"/>
+    <polygon points="0,0 -209,-68 -220,0" fill="rgba(180,150,100,0.6)"/>
+    <polygon points="0,0 -220,0 -209,68" fill="rgba(200,170,120,0.9)"/>
+    <polygon points="0,0 -209,68 -176,130" fill="rgba(180,150,100,0.6)"/>
+    <polygon points="0,0 -176,130 -130,176" fill="rgba(200,170,120,0.9)"/>
+    <polygon points="0,0 -130,176 -68,209" fill="rgba(180,150,100,0.6)"/>
+    <polygon points="0,0 -68,209 0,220" fill="rgba(200,170,120,0.9)"/>
+    <!-- Inner ring lines for facet definition -->
+    <g stroke="rgba(255,220,160,0.3)" stroke-width="1" fill="none">
+      <line x1="0" y1="0" x2="0" y2="-220"/>
+      <line x1="0" y1="0" x2="68" y2="-209"/>
+      <line x1="0" y1="0" x2="130" y2="-176"/>
+      <line x1="0" y1="0" x2="176" y2="-130"/>
+      <line x1="0" y1="0" x2="209" y2="-68"/>
+      <line x1="0" y1="0" x2="220" y2="0"/>
+      <line x1="0" y1="0" x2="209" y2="68"/>
+      <line x1="0" y1="0" x2="176" y2="130"/>
+      <line x1="0" y1="0" x2="130" y2="176"/>
+      <line x1="0" y1="0" x2="68" y2="209"/>
+      <line x1="0" y1="0" x2="0" y2="220"/>
+      <line x1="0" y1="0" x2="-68" y2="209"/>
+      <line x1="0" y1="0" x2="-130" y2="176"/>
+      <line x1="0" y1="0" x2="-176" y2="130"/>
+      <line x1="0" y1="0" x2="-209" y2="68"/>
+      <line x1="0" y1="0" x2="-220" y2="0"/>
+      <line x1="0" y1="0" x2="-209" y2="-68"/>
+      <line x1="0" y1="0" x2="-176" y2="-130"/>
+      <line x1="0" y1="0" x2="-130" y2="-176"/>
+      <line x1="0" y1="0" x2="-68" y2="-209"/>
+    </g>
+    <!-- Center jewel -->
+    <circle cx="0" cy="0" r="18" fill="rgba(200,170,120,1)"/>
+    <circle cx="0" cy="0" r="10" fill="rgba(255,230,170,0.8)"/>
+  </g>
+</svg>
