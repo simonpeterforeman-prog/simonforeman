@@ -148,7 +148,9 @@ body {
   padding: 18px 28px;
   pointer-events: none;
   opacity: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.95), rgba(0,0,0,0));
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   transition: opacity 0.3s ease;
 }
 #site-nav.visible { opacity: 1; }
@@ -187,7 +189,7 @@ body {
   border-radius: 24px;
   transition: color 0.4s, border-color 0.4s;
   position: relative;
-  top: -1px;
+  top: 0px;
   min-height: 0;
   display: inline-block;
 }
@@ -4262,7 +4264,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <!-- Tile 2: Inquiry Form -->
   <div class="work-tile work-tile-inquiry" id="work-card">
     <div class="work-inquiry-row">
-      <p class="work-inquiry-contact">For MCD case studies and new business inquiries, contact Megan Nora at<br class="desktop-break" /> <a href="tel:7733166284" class="work-link">773-316-6284</a> or <a href="mailto:mnora@mcdpartners.com" class="work-link">mnora@mcdpartners.com</a></p>
+      <p class="work-inquiry-contact">For 10 fresh MCD case studies, new business, or partnership inquiries, contact Megan Nora at <a href="tel:7733166284" class="work-link">773-316-6284</a> or <a href="mailto:mnora@mcdpartners.com" class="work-link">mnora@mcdpartners.com</a></p>
       <p class="work-inquiry-or">Or drop her a line below:</p>
       <form id="work-inquiry-form" class="work-inquiry-form" action="https://formspree.io/f/mqeyrbva" method="POST">
         <input type="text" name="name" class="work-inquiry-input" placeholder="Your Name" required />
@@ -4338,7 +4340,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
       <div id="raps-volume-wrap">
         <svg id="raps-volume-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path class="vol-wave" d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-        <input type="range" id="raps-volume-slider" min="0" max="1" step="0.01" value="0.8" aria-label="Volume" />
+        <input type="range" id="raps-volume-slider" min="0" max="1" step="0.01" value="0.5" aria-label="Volume" />
         <button id="raps-keep-playing" title="Play while browsing">Play while browsing</button>
       </div>
     </div>
@@ -8780,7 +8782,7 @@ requestAnimationFrame(draw);
     rapsGainNode = rapsAudioCtx.createGain();
     rapsGainNode.connect(rapsAnalyser);
     rapsAnalyser.connect(rapsAudioCtx.destination);
-    rapsGainNode.gain.value = 0.8;
+    rapsGainNode.gain.value = 0.5;
     // iOS silent-buffer unlock: play a tiny silent buffer to fully activate audio output
     try {
       var silentBuf = rapsAudioCtx.createBuffer(1, 1, 22050);
@@ -8929,7 +8931,7 @@ requestAnimationFrame(draw);
   document.getElementById('raps-prev-btn').addEventListener('click', rapsPrevTrack);
   var rapsVolSlider = document.getElementById('raps-volume-slider');
   var rapsVolIcon = document.getElementById('raps-volume-icon');
-  var rapsVolBefore = 0.8;
+  var rapsVolBefore = 0.5;
   var rapsVolWave = rapsVolIcon.querySelector('.vol-wave');
   function rapsUpdateVolIcon(v) { if (rapsVolWave) rapsVolWave.style.display = v > 0 ? '' : 'none'; rapsVolIcon.style.opacity = v > 0 ? '1' : '0.4'; }
   rapsVolSlider.addEventListener('input', function(e) { var v = parseFloat(e.target.value); if (rapsGainNode) rapsGainNode.gain.value = v; rapsUpdateVolIcon(v); });
