@@ -2282,6 +2282,30 @@ body {
   border: none;
   border-radius: 0;
   overflow: visible;
+  max-width: 640px;
+}
+
+/* Standalone header (no tile border) */
+.work-header-standalone {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 0 10% 40px;
+  max-width: 900px;
+  width: calc(100% - 80px);
+}
+
+/* Inquiry + blog tiles — tighter width */
+.work-tile-inquiry {
+  max-width: 640px;
+  border: none;
+  background: none;
+}
+.work-card-blog {
+  max-width: 640px;
+  border: none;
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
 }
 
 /* Professional header: headshot + info + logo */
@@ -2463,16 +2487,97 @@ body {
   text-align: left;
 }
 
+/* New business inquiry form */
+.work-inquiry-row {
+  padding: 0 44px 44px;
+  text-align: left;
+}
+.work-inquiry-contact {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.04em;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+.work-inquiry-contact a {
+  color: rgba(200,170,120,0.7);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+  font-size: 0.85rem;
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+.work-inquiry-contact a[href^="tel:"] {
+  font-variant-numeric: tabular-nums;
+}
+.work-inquiry-or {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.04em;
+  margin-bottom: 12px;
+}
+.work-inquiry-form {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+.work-inquiry-input {
+  padding: 10px 16px;
+  background: rgba(200,170,120,0.03);
+  border: 1px solid rgba(200,170,120,0.15);
+  border-radius: 24px;
+  color: rgba(255,255,255,0.7);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  outline: none;
+  transition: border-color 0.3s, background 0.3s;
+}
+.work-inquiry-input::placeholder { color: rgba(255,255,255,0.25); }
+.work-inquiry-input:focus {
+  border-color: rgba(200,170,120,0.25);
+  background: rgba(200,170,120,0.04);
+}
+.work-inquiry-textarea {
+  padding: 12px 16px;
+  background: rgba(200,170,120,0.02);
+  border: 1px solid rgba(150,140,120,0.1);
+  border-radius: 16px;
+  color: rgba(255,255,255,0.5);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  outline: none;
+  resize: vertical;
+  min-height: 70px;
+  transition: border-color 0.3s, background 0.3s;
+}
+.work-inquiry-textarea:focus {
+  border-color: rgba(200,170,120,0.25);
+  background: rgba(200,170,120,0.04);
+  color: rgba(255,255,255,0.7);
+}
+.work-inquiry-submit {
+  align-self: flex-start;
+  margin-top: 6px;
+}
+
 /* Story narrative tile */
 .work-card-story {
-  padding: 20px 10% 44px;
+  padding: 20px 44px 24px;
 }
 
 /* Photo section */
 .work-card-photo {
   width: 100%;
   line-height: 0;
-  padding: 48px 10% 0;
+  padding: 20px 28px 0;
   box-sizing: border-box;
 }
 .work-card-photo img {
@@ -2493,6 +2598,10 @@ body {
 .work-story strong {
   color: rgba(200,170,120,0.85);
   font-weight: 400;
+}
+.work-story b {
+  color: rgba(255,255,255,0.85);
+  font-weight: 600;
 }
 .work-story em {
   color: rgba(255,255,255,0.45);
@@ -2530,40 +2639,59 @@ body {
 /* Blog post — reversed/highlighted */
 .work-card-blog {
   display: block;
-  padding: 32px 10%;
+  padding: 32px 44px;
   text-decoration: none;
   transition: background 0.3s ease;
   cursor: pointer;
+  text-align: left;
+}
+.work-blog-inner {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+.work-blog-thumb {
+  width: 90px;
+  height: 160px;
+  border-radius: 10px 10px 0 0;
+  flex-shrink: 0;
+  object-fit: cover;
+  object-position: top;
+  align-self: flex-start;
+  margin-bottom: -32px;
+}
+.work-blog-text {
+  flex: 1;
 }
 .work-card-blog:hover {
-  background: rgba(200,170,120,0.09);
+  background: rgba(255,255,255,0.07);
 }
 .work-blog-tag {
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: rgba(200,170,120,0.5);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 .work-blog-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: rgba(200,170,120,0.8);
   line-height: 1.4;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   transition: color 0.3s ease;
 }
 .work-card-blog:hover .work-blog-title {
   color: rgba(200,170,120,1);
 }
 .work-blog-date {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   letter-spacing: 0.12em;
   color: rgba(255,255,255,0.3);
   margin-bottom: 8px;
 }
 .work-blog-meta {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   line-height: 1.6;
   color: rgba(255,255,255,0.55);
 }
@@ -2586,21 +2714,22 @@ body {
   .work-header-links .work-link { font-size: 0.85rem; }
   .work-header-links { flex-wrap: wrap; gap: 12px 20px; margin-bottom: 0; }
   .work-mcd-logo { display: none; }
-  .work-password-row { padding: 20px 20px 24px 20px; }
-  .pw-request-wrap { width: 100%; }
-  .pw-request-fields { flex-direction: column; align-items: flex-start; }
-  .pw-request-input { width: 100%; font-size: 1rem; padding: 14px 16px; box-sizing: border-box; }
-  .pw-request-submit { width: 100%; font-size: 0.85rem; }
-  .pw-request-toggle { font-size: 0.85rem; }
-  .work-password-gate { flex-direction: column; align-items: flex-start; gap: 10px; }
-  .password-label { font-size: 1rem; }
-  .password-input { width: 100%; font-size: 1rem; padding: 14px 16px; box-sizing: border-box; }
+  .work-header-standalone { flex-wrap: wrap; padding: 0 20px 28px; gap: 16px; align-items: center; }
+  .work-tile-inquiry { max-width: 100%; }
+  .work-inquiry-row { padding: 20px 20px 24px; }
+  .work-inquiry-form { max-width: 100%; }
+  .work-inquiry-contact { font-size: 0.95rem; }
+  .desktop-break { display: none; }
+  .work-inquiry-input { font-size: 1rem; padding: 14px 16px; box-sizing: border-box; }
+  .work-inquiry-textarea { font-size: 1rem; padding: 14px 16px; box-sizing: border-box; }
+  .work-inquiry-submit { width: 100%; font-size: 0.85rem; }
   .work-card-story { padding: 12px 20px 20px; }
   .work-story { font-size: 1.1rem; line-height: 1.8; }
   .work-story-cta { font-size: 0.85rem; }
   .work-card-photo { width: 100%; padding: 0 20px; }
   .work-card-main { padding: 0; }
   .work-card-blog { padding: 28px 20px 32px; }
+  .work-blog-thumb { width: 70px; }
   .work-blog-tag { font-size: 0.85rem; }
   .work-blog-title { font-size: 1.1rem; }
   .work-blog-date { font-size: 0.85rem; color: rgba(255,255,255,0.45); }
@@ -4104,57 +4233,58 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <section id="sec-work" class="site-section">
 <div id="work-stage">
-  <!-- Tile 1: Header + Password -->
-  <div class="work-tile" id="work-card">
-    <div class="work-card-header">
-      <img class="work-headshot" src="work/headshot.jpg" alt="Simon Foreman — Creative Director, MCD Partners" />
-      <div class="work-header-info">
-        <div class="work-header-name">Simon Foreman</div>
-        <div class="work-header-title">Creative Director — MCD Partners, M+C Saatchi Consulting</div>
-        <div class="work-header-links">
-          <a class="work-link" href="mailto:sforeman@mcdpartners.com">sforeman@mcdpartners.com</a>
-          <a class="work-link" href="https://www.linkedin.com/in/simon-foreman-32187814" target="_blank" rel="noopener">LinkedIn →</a>
-        </div>
-      </div>
-      <a href="https://mcdpartners.com" target="_blank" rel="noopener"><img class="work-mcd-logo" src="work/mcdlogo.png" alt="MCD Partners" /></a>
-    </div>
-    <div class="work-password-row">
-      <div class="work-password-gate">
-        <label class="password-label" for="work-password">MCD client case studies available with password</label>
-        <input type="password" id="work-password" class="password-input" placeholder="Password" autocomplete="off" />
-      </div>
-      <div class="pw-request-wrap">
-        <button id="pw-request-toggle" class="pw-request-toggle">Request access</button>
-        <form id="pw-request-form" class="pw-request-form" hidden>
-          <div class="pw-request-fields">
-            <input type="email" id="pw-request-email" name="email" class="pw-request-input" placeholder="Your email" required />
-            <button type="submit" class="pw-request-submit">Send</button>
-          </div>
-          <p id="pw-request-msg" class="pw-request-msg" hidden></p>
-        </form>
+  <!-- Work Header (no tile border) -->
+  <div class="work-header-standalone">
+    <img class="work-headshot" src="work/headshot.jpg" alt="Simon Foreman — Creative Director, MCD Partners" />
+    <div class="work-header-info">
+      <div class="work-header-name">Simon Foreman</div>
+      <div class="work-header-title">Creative Director — MCD Partners, M+C Saatchi Consulting</div>
+      <div class="work-header-links">
+        <a class="work-link" href="mailto:sforeman@mcdpartners.com">sforeman@mcdpartners.com</a>
+        <a class="work-link" href="https://www.linkedin.com/in/simon-foreman-32187814" target="_blank" rel="noopener">LinkedIn →</a>
       </div>
     </div>
+    <a href="https://mcdpartners.com" target="_blank" rel="noopener"><img class="work-mcd-logo" src="work/mcdlogo.png" alt="MCD Partners" /></a>
   </div>
 
-  <!-- Tile 2: Photo + Caption -->
+  <!-- Tile 1: Photo + Caption -->
   <div class="work-tile work-tile-photo">
     <div class="work-card-photo">
       <img src="work/CarusoRevised_opt.png" alt="Simon Foreman and John Caruso, MCD Partners creative leadership" />
     </div>
     <div class="work-card-story">
       <div class="work-card-main">
-        <p class="work-story">15+ years creating digital experiences alongside <strong>John Caruso</strong>, the C in <strong>MCD Partners</strong> — solving real problems for real people with real imagination. (Not accurately represented above.) Proudest work: <strong>Discover Financial Services</strong> / <strong>Capital One Financial</strong> — full-funnel creative reaching tens of millions of cardmembers.</p>
-        <a class="work-story-cta" href="https://mcdpartners.com" target="_blank" rel="noopener">Learn more about MCD</a>
+        <p class="work-story">15+ years creating digital experiences alongside <b>John Caruso</b>, the C in <b>MCD Partners</b> — solving real problems for real people with real imagination. (Not accurately represented above.) Proudest work: <b>Discover Financial Services</b> / <b>Capital One Financial</b> — full-funnel creative reaching tens of millions of cardmembers.</p>
       </div>
+    </div>
+  </div>
+
+  <!-- Tile 2: Inquiry Form -->
+  <div class="work-tile work-tile-inquiry" id="work-card">
+    <div class="work-inquiry-row">
+      <p class="work-inquiry-contact">For MCD case studies and new business inquiries, contact Megan Nora at<br class="desktop-break" /> <a href="tel:7733166284" class="work-link">773-316-6284</a> or <a href="mailto:mnora@mcdpartners.com" class="work-link">mnora@mcdpartners.com</a></p>
+      <p class="work-inquiry-or">Or drop her a line below:</p>
+      <form id="work-inquiry-form" class="work-inquiry-form" action="https://formspree.io/f/mqeyrbva" method="POST">
+        <input type="text" name="name" class="work-inquiry-input" placeholder="Your Name" required />
+        <input type="email" name="email" class="work-inquiry-input work-inquiry-email" placeholder="Your Email Address" required />
+        <textarea name="message" class="work-inquiry-textarea" rows="3">Simon's work caught my eye. I'd love to see his work with MCD and explore working together.</textarea>
+        <button type="submit" class="pw-request-submit work-inquiry-submit">Send</button>
+        <p id="work-inquiry-msg" class="pw-request-msg" hidden></p>
+      </form>
     </div>
   </div>
 
   <!-- Tile 3: Blog -->
   <a class="work-tile work-card-blog" href="ChaunceyWeb/index.html" target="_blank" rel="noopener">
-    <div class="work-blog-tag">Blog — AI &amp; Creative Tools</div>
-    <div class="work-blog-title">How I Started Building an App Accidentally</div>
-    <div class="work-blog-date">January 2026</div>
-    <div class="work-blog-meta">A creative director's experiment with AI tools turns into a fully functional application. <span class="work-blog-read" style="white-space:nowrap;">Read&nbsp;→</span></div>
+    <div class="work-blog-inner">
+      <img class="work-blog-thumb" src="work/blog-thumb.png" alt="ChaunceyWeb beach running app screenshot" />
+      <div class="work-blog-text">
+        <div class="work-blog-tag">Blog — AI &amp; Creative Tools</div>
+        <div class="work-blog-title">How I Started Building an App Accidentally</div>
+        <div class="work-blog-date">January 2026</div>
+        <div class="work-blog-meta">A creative director's experiment with AI tools turns into a fully functional application. <span class="work-blog-read" style="white-space:nowrap;">Read&nbsp;→</span></div>
+      </div>
+    </div>
   </a>
 
 </div><!-- /work-stage -->
@@ -4285,7 +4415,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <div class="footer-card">
     <h2 class="footer-name">Simon Foreman</h2>
 
-    <p class="footer-cta-text">Brings a passion for making things to every MCD client, leading creative teams and growing partnerships that last. For new business, connect with <a href="mailto:imagnani@mcdpartners.com">Ian Magnani</a>. For everything else, <a href="mailto:simonpeterforeman@gmail.com">reach out directly</a>.</p>
+    <p class="footer-cta-text">Brings a passion for making things to every MCD client, leading creative teams and growing partnerships that last. For new business, connect with <a href="mailto:mnora@mcdpartners.com">Megan Nora</a>. For everything else, <a href="mailto:simonpeterforeman@gmail.com">reach out directly</a>.</p>
 
     <div id="footer-contact" class="footer-contact">
       <div class="footer-contact-block">
@@ -4852,51 +4982,60 @@ document.getElementById('nav-contact').addEventListener('click', function(e) {
   document.getElementById('footer-origin').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
-// === PASSWORD REQUEST ===
+// === NEW BUSINESS INQUIRY FORM ===
 (function() {
-  var toggle = document.getElementById('pw-request-toggle');
-  var form = document.getElementById('pw-request-form');
-  var emailInput = document.getElementById('pw-request-email');
-  var msg = document.getElementById('pw-request-msg');
-  if (!toggle || !form) return;
-
-  toggle.addEventListener('click', function() {
-    if (form.hidden) {
-      form.hidden = false;
-      toggle.style.display = 'none';
-      emailInput.focus();
-    }
-  });
+  var form = document.getElementById('work-inquiry-form');
+  var msg = document.getElementById('work-inquiry-msg');
+  if (!form) return;
 
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-    var email = emailInput.value.trim();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      msg.textContent = 'Please enter a valid email address.';
+    var nameVal = form.querySelector('[name="name"]').value.trim();
+    var emailVal = form.email.value.trim();
+    var messageVal = form.message.value.trim();
+
+    if (!nameVal) {
+      msg.textContent = 'Please enter your name.';
       msg.hidden = false;
+      form.querySelector('[name="name"]').focus();
       return;
     }
-    var submitBtn = form.querySelector('.pw-request-submit');
+    if (!emailVal || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailVal)) {
+      msg.textContent = 'Please enter a valid email address.';
+      msg.hidden = false;
+      form.email.focus();
+      return;
+    }
+
+    msg.hidden = true;
+    var submitBtn = form.querySelector('.work-inquiry-submit');
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<span class="pw-spinner"></span>';
-    fetch('https://formspree.io/f/mojkgjep', {
+
+    var data = {
+      name: nameVal,
+      email: emailVal,
+      message: messageVal
+    };
+
+    fetch('https://formspree.io/f/mqeyrbva', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({ email: email })
+      body: JSON.stringify(data)
     }).then(function(res) {
       if (res.ok) {
-        msg.textContent = 'Request sent — check your inbox soon.';
+        msg.textContent = 'Sent — the MCD team will be in touch soon.';
         msg.hidden = false;
         submitBtn.innerHTML = 'Resend';
         submitBtn.disabled = false;
       } else {
-        msg.textContent = 'Something went wrong. Try emailing directly.';
+        msg.textContent = 'Something went wrong. Try calling Megan directly.';
         msg.hidden = false;
         submitBtn.disabled = false;
         submitBtn.innerHTML = 'Send';
       }
     }).catch(function() {
-      msg.textContent = 'Something went wrong. Try emailing directly.';
+      msg.textContent = 'Something went wrong. Try calling Megan directly.';
       msg.hidden = false;
       submitBtn.disabled = false;
       submitBtn.innerHTML = 'Send';
