@@ -2154,7 +2154,7 @@ body {
   font-size: 0.85rem;
   color: rgba(255,255,255,0.6);
   line-height: 1.75;
-  text-align: left;
+  text-align: center;
   letter-spacing: 0.01em;
   width: 100%;
 }
@@ -2164,7 +2164,7 @@ body {
   font-size: 0.85rem;
   color: rgba(255,255,255,0.6);
   line-height: 1.75;
-  text-align: left;
+  text-align: center;
   letter-spacing: 0.01em;
   margin: 0 0 32px;
 }
@@ -2196,7 +2196,7 @@ body {
   letter-spacing: 0.08em;
   text-transform: none;
   font-style: italic;
-  margin: 0 0 24px;
+  margin: 0 0 12px;
 }
 .footer-contact {
   display: flex;
@@ -2540,7 +2540,7 @@ body {
   outline: none;
   transition: border-color 0.3s, background 0.3s;
 }
-.work-inquiry-input::placeholder { color: rgba(255,255,255,0.25); }
+.work-inquiry-input::placeholder, .work-inquiry-textarea::placeholder { color: rgba(255,255,255,0.25); }
 .work-inquiry-input:focus {
   border-color: rgba(200,170,120,0.25);
   background: rgba(200,170,120,0.04);
@@ -4269,7 +4269,7 @@ document.addEventListener('DOMContentLoaded', function() {
       <form id="work-inquiry-form" class="work-inquiry-form" action="https://formspree.io/f/mqeyrbva" method="POST">
         <input type="text" name="name" class="work-inquiry-input" placeholder="Your Name" required />
         <input type="email" name="email" class="work-inquiry-input work-inquiry-email" placeholder="Your Email Address" required />
-        <textarea name="message" class="work-inquiry-textarea" rows="3">Simon's work caught my eye. I'd love to see his work with MCD and explore working together.</textarea>
+        <textarea name="message" class="work-inquiry-textarea" rows="3" placeholder="Your Message, e.g. Simon's work caught my eye. I'd love to see his 10 MCD case studies and explore working together."></textarea>
         <button type="submit" class="pw-request-submit work-inquiry-submit">Send</button>
         <p id="work-inquiry-msg" class="pw-request-msg" hidden></p>
       </form>
@@ -4957,7 +4957,20 @@ document.querySelectorAll('#site-nav .nav-center a').forEach(function(a) {
     var sectionId = a.dataset.section;
     var titleEl = document.getElementById('title-' + sectionId);
     var target = titleEl || document.getElementById('sec-' + sectionId);
-    if (target) navScrollTo(target);
+    if (target) {
+      navScrollTo(target);
+      // Correction passes for layout shifts from late-loading images
+      var corrTimers = [800, 1500, 2500];
+      corrTimers.forEach(function(delay) {
+        setTimeout(function() {
+          if (_navScrolling) return; // still scrolling, don't interfere
+          var dist = target.getBoundingClientRect().top;
+          if (Math.abs(dist) > 10) {
+            window.scrollBy({ top: dist, behavior: 'smooth' });
+          }
+        }, delay);
+      });
+    }
   });
 });
 
