@@ -1180,8 +1180,9 @@ body {
   color: transparent;
 }
 
-#sec-songs .art-pyunghwa { background: url('raps/PyungCover.png') center/cover no-repeat; }
+#sec-songs .art-inertia { background: url('raps/PyungCover.png') center/cover no-repeat; }
 #sec-songs .art-brassknuckles { background: url('raps/BrassCover.png') center/cover no-repeat; }
+#sec-songs .art-bsides { background: url('raps/simoncover.webp') center/cover no-repeat; }
 #sec-songs .art-placeholder-bg { background: linear-gradient(135deg, #111, #1a1a1a, #111); }
 
 #raps-track-meta {
@@ -3847,7 +3848,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <nav id="site-nav">
   <div class="nav-left"><a href="#" id="nav-home">Simon Foreman</a><a href="#site-footer" id="nav-contact">Why</a></div>
   <div id="nav-top-row"><span id="nav-top-label">Simon Foreman</span></div>
-  <div class="nav-center"><a data-section="artworks"><span class="nav-num">01</span> Form</a><a data-section="work"><span class="nav-num">02</span> Vision</a><a data-section="songs"><span class="nav-num">03</span> Sound</a><a data-section="family"><span class="nav-num">04</span> Blood</a><a data-section="home"><span class="nav-num">05</span> Ground</a></div>
+  <div class="nav-center"><a data-section="artworks"><span class="nav-num">01</span> Form</a><a data-section="work"><span class="nav-num">02</span> Vision</a><a data-section="songs"><span class="nav-num">03</span> Soul</a><a data-section="family"><span class="nav-num">04</span> Blood</a><a data-section="home"><span class="nav-num">05</span> Ground</a></div>
 </nav>
 <div id="subsection-nav"><a data-piece="p1">01</a><a data-piece="p4">02</a><a data-piece="p2">03</a><a data-piece="p9">04</a><a data-piece="p3">05</a><a data-piece="p7">06</a><a data-piece="p5">07</a><a data-piece="p6">08</a><a data-piece="p8">09</a><a data-piece="p10">10</a></div>
 
@@ -4313,14 +4314,14 @@ document.addEventListener('DOMContentLoaded', function() {
     <div id="raps-now-playing">
       <div id="raps-track-info-row">
         <div id="raps-album-art">
-          <div class="art-placeholder art-pyunghwa" id="raps-art-display">
-            <span>Pyunghwa</span>
+          <div class="art-placeholder art-inertia" id="raps-art-display">
+            <span>Inertia</span>
           </div>
         </div>
         <div id="raps-track-meta">
           <div id="raps-track-title">This Life</div>
-          <div id="raps-track-artist">Simon Foreman</div>
-          <div id="raps-track-album">Pyunghwa</div>
+          <div id="raps-track-artist">Pyunghwa</div>
+          <div id="raps-track-album">Inertia</div>
         </div>
       </div>
 
@@ -5079,7 +5080,7 @@ document.getElementById('nav-contact').addEventListener('click', function(e) {
 
   var _atBottom = false;
   var skipLabel = document.getElementById('skip-label');
-  var _sectionLabels = { artworks: 'Form', songs: 'Sound', work: 'Vision', family: 'Blood', home: 'Ground' };
+  var _sectionLabels = { artworks: 'Form', songs: 'Soul', work: 'Vision', family: 'Blood', home: 'Ground' };
   var _sectionNums = { artworks: '01', work: '02', songs: '03', family: '04', home: '05' };
 
   // Mobile pill elements
@@ -8770,16 +8771,16 @@ requestAnimationFrame(draw);
   var _songsActive = false;
 
   var rapsTracks = [
-    { title: "This Life", album: "Pyunghwa", file: "raps/this_life.mp3", dur: "3:35" },
-    { title: "Soulful Spirit", album: "Brassknuckles", file: "raps/soulful_spirit.mp3", dur: "4:26" },
-    { title: "Hollow Heart", album: "Pyunghwa", file: "raps/hollow_heart.mp3", dur: "5:10" },
-    { title: "Colors of War", album: "Pyunghwa", file: "raps/colors_of_war.mp3", dur: "4:57" },
-    { title: "Riddles and Games", album: "Pyunghwa", file: "raps/riddles_and_games.mp3", dur: "3:46" },
-    { title: "Saddle Up", album: "Brassknuckles", file: "raps/saddle_up.mp3", dur: "4:54" },
-    { title: "Bragrights", album: "Brassknuckles", file: "raps/bragrights.mp3", dur: "5:36" },
-    { title: "Inertia", album: "Pyunghwa", file: "raps/Inertia.mp3", dur: "4:38" },
-    { title: "Black Hole", album: "Brassknuckles", file: "raps/black_hole.mp3", dur: "4:03" },
-    { title: "Inside Insight", album: "Pyunghwa", file: "raps/inside_insight.mp3", dur: "3:47" },
+    { title: "This Life", artist: "Pyunghwa", album: "Inertia", file: "raps/this_life.mp3", dur: "3:35" },
+    { title: "Soulful Spirit", artist: "Brassknucks", album: "Men's Evil Manners Live in Brass", file: "raps/soulful_spirit.mp3", dur: "4:26" },
+    { title: "Colors of War", artist: "Pyunghwa", album: "Inertia", file: "raps/colors_of_war.mp3", dur: "4:57" },
+    { title: "Second Born", artist: "Pyunghwa", album: "Ratatatmixes", file: "raps/Secondborn.mp3", dur: "7:50" },
+    { title: "Saddle Up", artist: "Brassknucks", album: "Men's Evil Manners Live in Brass", file: "raps/saddle_up.mp3", dur: "4:54" },
+    { title: "Hollow Heart", artist: "Pyunghwa", album: "Inertia", file: "raps/hollow_heart.mp3", dur: "5:10" },
+    { title: "Hollow Heart II", artist: "Pyunghwa", album: "Ratatatmixes", file: "raps/Hollowheart2.mp3", dur: "9:09" },
+    { title: "Riddles and Games", artist: "Pyunghwa", album: "Inertia", file: "raps/riddles_and_games.mp3", dur: "3:46" },
+    { title: "Bragrights", artist: "Brassknucks", album: "Men's Evil Manners Live in Brass", file: "raps/bragrights.mp3", dur: "5:36" },
+    { title: "Inertia", artist: "Pyunghwa", album: "Inertia", file: "raps/Inertia.mp3", dur: "4:38" },
   ];
 
   var rapsAudioCtx = null, rapsAnalyser = null, rapsDataArray = null, rapsGainNode = null;
@@ -8834,15 +8835,15 @@ requestAnimationFrame(draw);
   var rapsBgFrames = document.querySelectorAll('#raps-bg-frames .bg-frame');
   function rapsCycleBgFrame() {
     rapsBgFrames.forEach(function(f) { f.classList.remove('active'); });
-    var album = rapsTracks[rapsCurrentTrack].album.toLowerCase();
-    rapsBgFrames[album === 'pyunghwa' ? 0 : album === 'brassknuckles' ? 1 : 2].classList.add('active');
+    var album = rapsTracks[rapsCurrentTrack].album;
+    rapsBgFrames[album === 'Inertia' ? 0 : album === "Men's Evil Manners Live in Brass" ? 1 : 2].classList.add('active');
   }
 
   var rapsTrackListEl = document.getElementById('raps-track-list');
   rapsTracks.forEach(function(t, i) {
     var row = document.createElement('div');
     row.className = 'track-row' + (i === 0 ? ' active' : '');
-    var albumClass = t.album === 'Pyunghwa' ? 'art-pyunghwa' : t.album === 'Brassknuckles' ? 'art-brassknuckles' : 'art-placeholder-bg';
+    var albumClass = t.album === 'Inertia' ? 'art-inertia' : t.album === "Men's Evil Manners Live in Brass" ? 'art-brassknuckles' : t.album === 'Ratatatmixes' ? 'art-bsides' : 'art-placeholder-bg';
     row.innerHTML =
       '<div class="track-num">' + (i + 1) + '</div>' +
       '<div class="eq-bars"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>' +
@@ -8864,8 +8865,9 @@ requestAnimationFrame(draw);
   function rapsUpdateUI() {
     var t = rapsTracks[rapsCurrentTrack];
     document.getElementById('raps-track-title').textContent = t.title;
+    document.getElementById('raps-track-artist').textContent = t.artist || '';
     document.getElementById('raps-track-album').textContent = t.album;
-    var albumClass = t.album === 'Pyunghwa' ? 'art-pyunghwa' : t.album === 'Brassknuckles' ? 'art-brassknuckles' : 'art-placeholder-bg';
+    var albumClass = t.album === 'Inertia' ? 'art-inertia' : t.album === "Men's Evil Manners Live in Brass" ? 'art-brassknuckles' : t.album === 'Ratatatmixes' ? 'art-bsides' : 'art-placeholder-bg';
     var ad = document.getElementById('raps-art-display');
     ad.className = 'art-placeholder ' + albumClass;
     ad.querySelector('span').textContent = t.file === null ? 'Coming Soon' : t.album;
