@@ -2747,8 +2747,8 @@ body {
   .work-tile-inquiry { max-width: 100%; }
   .work-inquiry-row { padding: 20px 20px 24px; }
   .work-inquiry-form { max-width: 100%; }
-  .work-inquiry-contact { font-size: 1rem; }
-  .work-inquiry-or { font-size: 0.85rem; }
+  .work-inquiry-contact { font-size: 1.1rem; line-height: 1.8; }
+  .work-inquiry-or { font-size: 1.1rem; }
   .desktop-break { display: none; }
   .work-inquiry-input { font-size: 1rem; padding: 14px 16px; box-sizing: border-box; }
   .work-inquiry-textarea { font-size: 1rem; padding: 14px 16px; box-sizing: border-box; }
@@ -3813,13 +3813,13 @@ body {
     font-family: 'Nunito', sans-serif;
     font-weight: 300;
     color: rgba(200,170,120,0.5);
-    font-size: 0.55rem;
+    font-size: 0.85rem;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     text-decoration: none;
     border: 1px solid rgba(200,170,120,0.3);
     border-radius: 24px;
-    padding: 10px 20px;
+    padding: 14px 28px;
     transition: color 0.3s ease, border-color 0.3s ease, background 0.3s ease;
   }
 
@@ -9138,7 +9138,7 @@ requestAnimationFrame(draw);
   window._sections['songs'] = {
     activate: function() {
       _songsActive = true;
-      if (window._rapsVizAPI) window._rapsVizAPI.start();
+      if (window._rapsVizAPI) { window._rapsVizAPI.resize(); window._rapsVizAPI.start(); }
     },
     deactivate: function() {
       _songsActive = false;
