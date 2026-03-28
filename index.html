@@ -474,14 +474,14 @@ body {
     -webkit-tap-highlight-color: transparent;
   }
   #nav-top-row.visible {
-    max-height: 40px;
+    max-height: 52px;
     opacity: 1;
-    padding: 10px 16px 2px;
+    padding: 14px 16px 6px;
     pointer-events: auto;
   }
   #nav-top-label {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 400;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -2268,7 +2268,12 @@ body {
   .footer-contact-label { font-size: 1.1rem; }
   .footer-contact-link { font-size: 1rem; }
   .footer-dad-desc { font-size: 1.1rem; }
-  .footer-dad-link { font-size: 1rem; }
+  .footer-dad-link { font-size: 0.85rem; padding: 14px 28px; }
+  #p10 .memorial-section .memorial-link { font-size: 0.85rem; padding: 14px 28px; }
+  .p11-trigger-btn { font-size: 1.1rem; }
+  .piece-title-screen p.p11-desc { font-size: 1.15rem !important; line-height: 1.9 !important; max-width: 100% !important; color: rgba(255,255,255,0.55) !important; white-space: normal !important; }
+  .piece-title-screen p.p11-details { font-size: 1.05rem !important; color: rgba(255,255,255,0.65) !important; }
+  .vibecoded-archive-link { font-size: 0.85rem; padding: 14px 28px; }
   .footer-dad-name { font-size: 1.3rem; }
   .footer-dedication { font-size: 1.1rem; }
   .footer-origin { max-width: 100%; }
@@ -3825,8 +3830,68 @@ body {
   }
 
 /* ===== FOR JOHNS ===== */
-  #p11 { background: #000; }
-  #p11-entry-spacer { height: 20vh; }
+  /* p11 trigger */
+  .p11-rule {
+    border: none;
+    border-top: 1px solid rgba(200,170,120,0.1);
+    margin: 60px auto 0;
+    width: 120px;
+  }
+  #p11-trigger {
+    text-align: center;
+    padding: 28px 0 80px;
+  }
+  .p11-trigger-btn {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-style: italic;
+    font-size: 1.1rem;
+    letter-spacing: 0.06em;
+    color: rgba(200,170,120,0.4);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .p11-trigger-btn:hover {
+    color: rgba(200,170,120,0.7);
+  }
+  .p11-trigger-btn.opened {
+    opacity: 0.25;
+    pointer-events: none;
+  }
+
+  /* p11 title styles */
+  .p11-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 2.4rem !important;
+    font-weight: 300 !important;
+    letter-spacing: 0.06em !important;
+    color: rgba(200,170,120,0.7) !important;
+  }
+  .p11-details {
+    font-family: 'Nunito', sans-serif !important;
+    font-size: 0.7rem !important;
+    font-weight: 300 !important;
+    color: rgba(255,255,255,0.4) !important;
+    letter-spacing: 0.08em !important;
+    margin-top: 8px !important;
+  }
+  .p11-desc {
+    font-family: 'Nunito', sans-serif !important;
+    font-size: 0.7rem !important;
+    font-weight: 300 !important;
+    color: rgba(255,255,255,0.45) !important;
+    line-height: 1.8 !important;
+    letter-spacing: 0.04em !important;
+    max-width: 520px !important;
+    margin: 14px auto 0 !important;
+    text-align: center !important;
+  }
+
+  #p11 { background: #000; padding-bottom: 80px; }
+  #p11-entry-spacer { height: 8vh; }
   @media (max-width: 768px) {
     #p11-entry-spacer { height: 4vh; }
   }
@@ -4222,22 +4287,25 @@ document.addEventListener('DOMContentLoaded', function() {
     <a class="memorial-link" href="http://chrisalanforeman.com/archives/kimforemancom/index.html" target="_blank" rel="noopener">Her Legacy</a>
   </div>
 
+  <hr class="p11-rule" />
+  <div id="p11-trigger">
+    <button id="p11-trigger-btn" class="p11-trigger-btn">Bonus: Studio Glimpse ››</button>
+  </div>
+
   </div>
 </section>
 
-<!-- In the Studio -->
-<section id="p11" class="piece" data-theme="dark" data-bg="#000">
+<!-- In the Studio (hidden until triggered) -->
+<section id="p11" class="piece" data-theme="dark" data-bg="#000" style="display:none;">
 <div id="p11-entry-spacer"></div>
 <div id="p11-canvas-wrap">
   <canvas id="p11-canvas"></canvas>
 </div>
 <div id="p11-scroll-spacer"></div>
-<div class="piece-title-screen">
-  <h2>Bonus Studio Glimpse</h2>
-  <p>60″ × 48″ — Acrylic paint on canvas, in progress</p>
-  <div class="piece-desc-wrap">
-    <span class="piece-desc-preview">An homage to Jasper Johns' encaustic flag that</span><span class="piece-desc-ellipsis">... <button class="piece-desc-link">read more</button></span><span class="piece-desc-full"> helped launch Pop Art — the American flag deconstructed into its 63 elements: 50 stars, 13 stripes, each painted in impasto acrylic on canvas. <button class="piece-desc-link">read less</button></span>
-  </div>
+<div class="piece-title-screen p11-title-screen">
+  <h2 class="p11-title">For Johns</h2>
+  <p class="p11-details">60″ × 48″ — Acrylic paint on canvas, in progress</p>
+  <p class="p11-desc">An homage to Jasper Johns' encaustic flag that helped launch Pop Art — the American flag deconstructed into its 63 elements: 50 stars, 13 stripes, each painted in impasto acrylic on canvas.</p>
 </div>
 
 <div id="p11-documentation">
@@ -8145,6 +8213,29 @@ resize();
 requestAnimationFrame(draw);
 
 
+})();
+
+// ===== P11 TRIGGER (Bonus: Studio Glimpse) =====
+(function() {
+  var triggerBtn = document.getElementById('p11-trigger-btn');
+  var p11Section = document.getElementById('p11');
+  if (!triggerBtn || !p11Section) return;
+
+  triggerBtn.addEventListener('click', function() {
+    if (p11Section.style.display !== 'none') return;
+    triggerBtn.classList.add('opened');
+    p11Section.style.display = '';
+    // Let layout settle, then scroll to p11
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        p11Section.scrollIntoView({ behavior: 'smooth' });
+        // Trigger resize on the p11 piece so canvas sizes correctly
+        if (window._pieces && window._pieces['p11'] && window._pieces['p11'].resize) {
+          window._pieces['p11'].resize();
+        }
+      });
+    });
+  });
 })();
 
 // ===== FOR JOHNS =====
