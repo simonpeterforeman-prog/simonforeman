@@ -1,9 +1,175 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://simonforeman.com/</loc>
-    <lastmod>2026-03-23</lastmod>
+    <lastmod>2026-04-11</lastmod>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p1_img01.jpg</image:loc>
+      <image:title>Ethical Decalogue — mid-range view</image:title>
+      <image:caption>Simon Foreman, Ethical Decalogue — mid-range view of mixed media installation, 192x144 inches, 2009-2010</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p1_img02.jpg</image:loc>
+      <image:title>Ethical Decalogue — close-up detail</image:title>
+      <image:caption>Simon Foreman, Ethical Decalogue — close-up detail</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p1_img00.jpg</image:loc>
+      <image:title>Ethical Decalogue — wide angle installation view</image:title>
+      <image:caption>Simon Foreman, Ethical Decalogue — wide angle installation view</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p1_img03.jpg</image:loc>
+      <image:title>Ethical Decalogue — under construction</image:title>
+      <image:caption>Simon Foreman, Ethical Decalogue — under construction</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p7_img00.jpg</image:loc>
+      <image:title>Yggdrasil — the pillar, full view</image:title>
+      <image:caption>Simon Foreman, Yggdrasil — the pillar, full view, 30x219x18 inches, 2005</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p7_img01.jpg</image:loc>
+      <image:title>Yggdrasil — close-up, root network</image:title>
+      <image:caption>Simon Foreman, Yggdrasil — close-up, root network</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p2_img00.jpg</image:loc>
+      <image:title>Cross Town Gaze — the white room</image:title>
+      <image:caption>Simon Foreman, Cross Town Gaze — the white room, 121x96x172 inches, 2005</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p2_img01.jpg</image:loc>
+      <image:title>Cross Town Gaze — portrait room with window</image:title>
+      <image:caption>Simon Foreman, Cross Town Gaze — portrait room with window</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p2_img02.jpg</image:loc>
+      <image:title>Cross Town Gaze — the window, head on</image:title>
+      <image:caption>Simon Foreman, Cross Town Gaze — the window, head on</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p9_img04.jpg</image:loc>
+      <image:title>Public Interventions — Empty Protest, the sign</image:title>
+      <image:caption>Simon Foreman, Public Interventions — Empty Protest, the sign, first performed 2003</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p9_img07.jpg</image:loc>
+      <image:title>Public Interventions — Traffic</image:title>
+      <image:caption>Simon Foreman, Public Interventions — Traffic</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p9_img05.jpg</image:loc>
+      <image:title>Public Interventions — Empty Protest, the crowd</image:title>
+      <image:caption>Simon Foreman, Public Interventions — Empty Protest, the crowd</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p3_img00.jpg</image:loc>
+      <image:title>Love Each Other — overhead view</image:title>
+      <image:caption>Simon Foreman, Love Each Other — overhead view, 121x96x172 inches, 2004</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p3_img01.jpg</image:loc>
+      <image:title>Love Each Other — corner view</image:title>
+      <image:caption>Simon Foreman, Love Each Other — corner view</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p3_img02.jpg</image:loc>
+      <image:title>Love Each Other — front view</image:title>
+      <image:caption>Simon Foreman, Love Each Other — front view</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p5_img00.jpg</image:loc>
+      <image:title>For Santayana — the tube from the side</image:title>
+      <image:caption>Simon Foreman, For Santayana — the tube from the side, 123x96x48 inches, 2004</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p5_img01.jpg</image:loc>
+      <image:title>For Santayana — the room, tube in wall</image:title>
+      <image:caption>Simon Foreman, For Santayana — the room, tube in wall</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p5_img02.jpg</image:loc>
+      <image:title>For Santayana — looking into the tube, the vanishing point</image:title>
+      <image:caption>Simon Foreman, For Santayana — looking into the tube, the vanishing point</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p4_img00.jpg</image:loc>
+      <image:title>Denying a Third Choice — through the frame</image:title>
+      <image:caption>Simon Foreman, Denying a Third Choice — through the frame, 123x96x172 inches, 2004</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p4_img01.jpg</image:loc>
+      <image:title>Denying a Third Choice — close-up, two chairs in grass</image:title>
+      <image:caption>Simon Foreman, Denying a Third Choice — close-up, two chairs in grass</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p4_img02.jpg</image:loc>
+      <image:title>Denying a Third Choice — wider view</image:title>
+      <image:caption>Simon Foreman, Denying a Third Choice — wider view</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p6_img00.jpg</image:loc>
+      <image:title>For Your Eyes Only — installation view</image:title>
+      <image:caption>Simon Foreman, For Your Eyes Only — installation view, soldiers facing the chart, 146x96x112 inches, 2009</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p6_img01.jpg</image:loc>
+      <image:title>For Your Eyes Only — the eye chart on lightbox</image:title>
+      <image:caption>Simon Foreman, For Your Eyes Only — the eye chart on lightbox</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p6_img02.jpg</image:loc>
+      <image:title>For Your Eyes Only — overhead, soldiers arranged in rows</image:title>
+      <image:caption>Simon Foreman, For Your Eyes Only — overhead, soldiers arranged in rows</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p8_img00.jpg</image:loc>
+      <image:title>All at Once — installation view, clock and panel</image:title>
+      <image:caption>Simon Foreman, All at Once — installation view, clock and panel, 278x108x167 inches, 2005</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p8_img01.jpg</image:loc>
+      <image:title>All at Once — the panel, close-up</image:title>
+      <image:caption>Simon Foreman, All at Once — the panel, close-up</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p10_img19.jpg</image:loc>
+      <image:title>My Agaseke — under construction, rebar framework</image:title>
+      <image:caption>Simon Foreman, My Agaseke — under construction, rebar framework with team, Butare, 2011</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p10_img20.jpg</image:loc>
+      <image:title>My Agaseke — under construction, baskets suspended</image:title>
+      <image:caption>Simon Foreman, My Agaseke — under construction, baskets suspended on strings</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p10_img12.jpg</image:loc>
+      <image:title>My Agaseke — baskets suspended, Kim Foreman Bible Institute</image:title>
+      <image:caption>Simon Foreman, My Agaseke — baskets suspended, Kim Foreman Bible Institute, Butare</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p10_img13.jpg</image:loc>
+      <image:title>My Agaseke — baskets installed</image:title>
+      <image:caption>Simon Foreman, My Agaseke — baskets installed, Kim Foreman Bible Institute</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p10_img15.jpg</image:loc>
+      <image:title>My Agaseke — agaseke sculpture</image:title>
+      <image:caption>Simon Foreman, My Agaseke — agaseke sculpture</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p10_img16.jpg</image:loc>
+      <image:title>My Agaseke — agaseke detail</image:title>
+      <image:caption>Simon Foreman, My Agaseke — agaseke detail</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://simonforeman.com/pieces/images/p10_img17.jpg</image:loc>
+      <image:title>My Agaseke — memorial plaque</image:title>
+      <image:caption>Simon Foreman, My Agaseke — memorial plaque, Dr. Kim Hyun Deok Foreman</image:caption>
+    </image:image>
   </url>
   <url>
     <loc>https://simonforeman.com/ChaunceyWeb/</loc>
