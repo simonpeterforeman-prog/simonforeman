@@ -1163,6 +1163,21 @@ body {
   line-height: 1.7;
   letter-spacing: 0.02em;
 }
+s {
+  text-decoration: none;
+  position: relative;
+  padding: 0 0.18em;
+  margin: 0 0.05em;
+}
+s::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 55%;
+  height: 1px;
+  background: currentColor;
+}
 #hero .hero-poem .hero-poem-break {
   margin-top: 0.8em;
 }
@@ -4155,7 +4170,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <div class="hero-poem">
     <p>The working</p>
     <p>testament</p>
-    <p>of a broken</p>
+    <p>of <s>a broken</s></p>
     <p>artist.</p>
   </div>
   <div id="listen-float">
@@ -4675,7 +4690,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
     <p class="footer-origin-text">Been making things as far back as memory goes. Art, music, a career, a family, a home — and now <a id="vibecoded-link" class="vibecoded-link">this website revision</a>, vibecoded into existence. The medium keeps changing but the feeling never does: something's broken until you make something, and then something's broken because you did. What you make never quite matches what you see.</p>
-    <p class="footer-origin-text footer-origin-text-left">That's the working testament of a broken artist. The testament is long now, decades deep — professional, personal bordering on has-been hobbyist 😂 — and the problem with yearning is it gets worse the more you feed it. Which would be a tragedy if making things weren't the best thing in the world. Every good gift comes from the Maker of makers.</p>
+    <p class="footer-origin-text footer-origin-text-left">That's the working testament of <s>a broken</s> artist. The testament is long now, decades deep — professional, personal bordering on has-been hobbyist 😂 — and the problem with yearning is it gets worse the more you feed it. Which would be a tragedy if making things weren't the best thing in the world. Every good gift comes from the Maker of makers.</p>
   </div>
 
   <!-- Simon contact card -->
