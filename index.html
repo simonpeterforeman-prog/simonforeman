@@ -997,6 +997,7 @@ body {
 }
 .gallery-piece-group {
   grid-column: 1 / -1;
+  margin-bottom: 40px;
 }
 .gallery-piece-heading {
   font-family: 'Cormorant Garamond', serif;
@@ -1007,6 +1008,14 @@ body {
   border-bottom: 1px solid rgba(200,170,120,0.1);
   margin-bottom: 4px;
 }
+.gallery-piece-heading .gallery-num {
+  font-family: 'Nunito', sans-serif;
+  font-style: normal;
+  font-size: 0.7rem;
+  color: rgba(200,170,120,0.4);
+  margin-right: 8px;
+  letter-spacing: 0.05em;
+}
 .gallery-piece-heading:first-child { padding-top: 0; }
 .gallery-piece-images {
   display: grid;
@@ -1014,8 +1023,66 @@ body {
   gap: 12px;
   margin-top: 12px;
 }
+.gallery-bonus {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(200,170,120,0.1);
+}
+.gallery-bonus-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-style: italic;
+  color: rgba(200,170,120,0.5);
+  margin-bottom: 12px;
+}
+.gallery-bonus-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+.gallery-bonus-images img {
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+}
+.gallery-modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding: 40px 0 20px;
+}
+.gallery-btn {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  padding: 12px 28px;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.gallery-btn-close {
+  background: rgba(200,170,120,0.15);
+  border: 1px solid rgba(200,170,120,0.35);
+  color: rgba(200,170,120,0.85);
+}
+.gallery-btn-close:hover {
+  background: rgba(200,170,120,0.25);
+  border-color: rgba(200,170,120,0.6);
+  color: rgba(200,170,120,1);
+}
+.gallery-btn-skip {
+  background: transparent;
+  border: 1px solid rgba(200,170,120,0.35);
+  color: rgba(200,170,120,0.7);
+}
+.gallery-btn-skip:hover {
+  border-color: rgba(200,170,120,0.6);
+  color: rgba(200,170,120,1);
+}
 @media (max-width: 768px) {
   .gallery-piece-images { grid-template-columns: 1fr; }
+  .gallery-bonus-images { grid-template-columns: 1fr; }
+  .gallery-modal-buttons { flex-direction: column; align-items: center; gap: 10px; }
+  .gallery-btn { width: 80%; text-align: center; }
 }
 .view-all-btn {
   background: none;
@@ -4168,7 +4235,7 @@ document.addEventListener('DOMContentLoaded', function() {
   <h1>Simon Foreman</h1>
   <div class="hero-line"></div>
   <div class="hero-poem">
-    <p>The working</p>
+    <p>A working</p>
     <p>testament</p>
     <p>of <s>a broken</s></p>
     <p>artist.</p>
@@ -4575,7 +4642,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div id="title-songs" class="section-title-card">
   <span class="ghost-num">03</span>
   <h2>10 Songs</h2>
-  <p>Recorded in Marin County, CA. Early 2000s.</p>
+  <p>Recorded in Marin County, CA. Early 2000s, with a few sprinkled in from later.</p>
 </div>
 
 <section id="sec-songs" class="site-section">
@@ -4650,7 +4717,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div id="title-home" class="section-title-card">
   <span class="ghost-num">05</span>
   <h2>10 Home Design Choices</h2>
-  <p>Designed and renovated every inch. Completed 2021, but never really done.</p>
+  <p>Designed and renovated every inch. Completed 2022, but never really done.</p>
 </div>
 
 <section id="sec-home" class="site-section">
@@ -4689,8 +4756,8 @@ document.addEventListener('DOMContentLoaded', function() {
         <img src="contact/kid6.jpg" alt="" />
       </div>
     </div>
-    <p class="footer-origin-text">Been making things as far back as memory goes. Art, music, a career, a family, a home — and now <a id="vibecoded-link" class="vibecoded-link">this website revision</a>, vibecoded into existence. The medium keeps changing but the feeling never does: something's broken until you make something, and then something's broken because you did. What you make never quite matches what you see.</p>
-    <p class="footer-origin-text footer-origin-text-left">That's the working testament of <s>a broken</s> artist. The testament is long now, decades deep — professional, personal bordering on has-been hobbyist 😂 — and the problem with yearning is it gets worse the more you feed it. Which would be a tragedy if making things weren't the best thing in the world. Every good gift comes from the Maker of makers.</p>
+    <p class="footer-origin-text">Been making things as far back as memory goes. Art, music, a career, a family, a home — and now <a id="vibecoded-link" class="vibecoded-link">this website</a>, vibecoded into existence. The medium keeps changing but the feeling never does: something's broken until you remake it. Making things on the outside can help fix things on the inside. And sometimes what you make doesn't quite fix what you intended.</p>
+    <p class="footer-origin-text footer-origin-text-left">That's the working testament of <s>a broken</s> artist. The testament is long now, decades deep — and the thing with making things is it never feels done, which is why I'm broken. Which would be a tragedy if making things weren't the best thing in the world. Every good gift comes from the Maker of makers.</p>
   </div>
 
   <!-- Simon contact card -->
@@ -9143,16 +9210,16 @@ requestAnimationFrame(draw);
   var _songsActive = false;
 
   var rapsTracks = [
-    { title: "This Life", artist: "Pyunghwa", album: "Inertia", file: "raps/this_life.mp3", dur: "3:35" },
-    { title: "Soulful Spirit", artist: "Brassknucks", album: "Men's Evil Manners Live in Brass", file: "raps/soulful_spirit.mp3", dur: "4:26" },
-    { title: "Colors of War", artist: "Pyunghwa", album: "Inertia", file: "raps/colors_of_war.mp3", dur: "4:57" },
-    { title: "Second Born", artist: "Pyunghwa", album: "Ratatatmixes", file: "raps/Secondborn.mp3", dur: "7:50" },
-    { title: "Saddle Up", artist: "Brassknucks", album: "Men's Evil Manners Live in Brass", file: "raps/saddle_up.mp3", dur: "4:54" },
-    { title: "Hollow Heart", artist: "Pyunghwa", album: "Inertia", file: "raps/hollow_heart.mp3", dur: "5:10" },
-    { title: "Hollow Heart II", artist: "Pyunghwa", album: "Ratatatmixes", file: "raps/Hollowheart2.mp3", dur: "9:09" },
-    { title: "Riddles and Games", artist: "Pyunghwa", album: "Inertia", file: "raps/riddles_and_games.mp3", dur: "3:46" },
-    { title: "Bragrights", artist: "Brassknucks", album: "Men's Evil Manners Live in Brass", file: "raps/bragrights.mp3", dur: "5:36" },
-    { title: "Inertia", artist: "Pyunghwa", album: "Inertia", file: "raps/Inertia.mp3", dur: "4:38" },
+    { title: "This Life ft. Teal De Reus", artist: "Pyunghwa", album: "Inertia (2003)", file: "raps/this_life.mp3", dur: "3:35" },
+    { title: "Soulful Spirit", artist: "Brassknucks", album: "Men's Evil Manners Live in Brass (2001)", file: "raps/soulful_spirit.mp3", dur: "4:26" },
+    { title: "Second Born", artist: "Pyunghwa", album: "Ratatatmixes (2012)", file: "raps/Secondborn.mp3", dur: "3:08" },
+    { title: "Colors of War", artist: "Pyunghwa", album: "Inertia (2003)", file: "raps/colors_of_war.mp3", dur: "4:57" },
+    { title: "Saddle Up", artist: "Brassknucks", album: "Men's Evil Manners Live in Brass (2001)", file: "raps/saddle_up.mp3", dur: "4:54" },
+    { title: "Hollow Heart", artist: "Pyunghwa", album: "Inertia (2003)", file: "raps/hollow_heart.mp3", dur: "5:10" },
+    { title: "Hollow Heart II", artist: "Pyunghwa", album: "Ratatatmixes (2012)", file: "raps/Hollowheart2.mp3", dur: "3:39" },
+    { title: "Riddles and Games", artist: "Pyunghwa", album: "Inertia (2003)", file: "raps/riddles_and_games.mp3", dur: "3:46" },
+    { title: "Bragrights", artist: "Brassknucks", album: "Men's Evil Manners Live in Brass (2001)", file: "raps/bragrights.mp3", dur: "5:36" },
+    { title: "Inertia ft. Teal De Reus", artist: "Pyunghwa", album: "Inertia (2003)", file: "raps/Inertia.mp3", dur: "4:38" },
   ];
 
   var rapsAudioCtx = null, rapsAnalyser = null, rapsDataArray = null, rapsGainNode = null;
@@ -9215,7 +9282,7 @@ requestAnimationFrame(draw);
   rapsTracks.forEach(function(t, i) {
     var row = document.createElement('div');
     row.className = 'track-row' + (i === 0 ? ' active' : '');
-    var albumClass = t.album === 'Inertia' ? 'art-inertia' : t.album === "Men's Evil Manners Live in Brass" ? 'art-brassknuckles' : t.album === 'Ratatatmixes' ? 'art-bsides' : 'art-placeholder-bg';
+    var albumClass = t.album.startsWith('Inertia') ? 'art-inertia' : t.album.startsWith("Men's Evil Manners") ? 'art-brassknuckles' : t.album.startsWith('Ratatatmixes') ? 'art-bsides' : 'art-placeholder-bg';
     row.innerHTML =
       '<div class="track-num">' + (i + 1) + '</div>' +
       '<div class="eq-bars"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>' +
@@ -9239,7 +9306,7 @@ requestAnimationFrame(draw);
     document.getElementById('raps-track-title').textContent = t.title;
     document.getElementById('raps-track-artist').textContent = t.artist || '';
     document.getElementById('raps-track-album').textContent = t.album;
-    var albumClass = t.album === 'Inertia' ? 'art-inertia' : t.album === "Men's Evil Manners Live in Brass" ? 'art-brassknuckles' : t.album === 'Ratatatmixes' ? 'art-bsides' : 'art-placeholder-bg';
+    var albumClass = t.album.startsWith('Inertia') ? 'art-inertia' : t.album.startsWith("Men's Evil Manners") ? 'art-brassknuckles' : t.album.startsWith('Ratatatmixes') ? 'art-bsides' : 'art-placeholder-bg';
     var ad = document.getElementById('raps-art-display');
     ad.className = 'art-placeholder ' + albumClass;
     ad.querySelector('span').textContent = t.file === null ? 'Coming Soon' : t.album;
@@ -9829,7 +9896,7 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
   <div class="gallery-grid">
 
     <div class="gallery-piece-group" data-piece="p1">
-      <div class="gallery-piece-heading">Ethical Decalogue</div>
+      <div class="gallery-piece-heading"><span class="gallery-num">01</span>Ethical Decalogue</div>
       <div class="gallery-piece-images">
         <div class="gallery-cell"><img src="pieces/images/p1_img01.jpg" loading="lazy" alt="Ethical Decalogue" /><div class="gallery-cell-title">View 1</div></div>
         <div class="gallery-cell"><img src="pieces/images/p1_img02.jpg" loading="lazy" alt="Ethical Decalogue" /><div class="gallery-cell-title">View 2</div></div>
@@ -9839,7 +9906,7 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
     </div>
 
     <div class="gallery-piece-group" data-piece="p7">
-      <div class="gallery-piece-heading">Yggdrasil</div>
+      <div class="gallery-piece-heading"><span class="gallery-num">02</span>Yggdrasil</div>
       <div class="gallery-piece-images">
         <div class="gallery-cell"><img src="pieces/images/p7_img00.jpg" loading="lazy" alt="Yggdrasil" /><div class="gallery-cell-title">View 1</div></div>
         <div class="gallery-cell"><img src="pieces/images/p7_img01.jpg" loading="lazy" alt="Yggdrasil" /><div class="gallery-cell-title">View 2</div></div>
@@ -9847,7 +9914,7 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
     </div>
 
     <div class="gallery-piece-group" data-piece="p2">
-      <div class="gallery-piece-heading">Cross Town Gaze</div>
+      <div class="gallery-piece-heading"><span class="gallery-num">03</span>Cross Town Gaze</div>
       <div class="gallery-piece-images">
         <div class="gallery-cell"><img src="pieces/images/p2_img00.jpg" loading="lazy" alt="Cross Town Gaze" /><div class="gallery-cell-title">View 1</div></div>
         <div class="gallery-cell"><img src="pieces/images/p2_img01.jpg" loading="lazy" alt="Cross Town Gaze" /><div class="gallery-cell-title">View 2</div></div>
@@ -9856,7 +9923,7 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
     </div>
 
     <div class="gallery-piece-group" data-piece="p9">
-      <div class="gallery-piece-heading">Public Interventions</div>
+      <div class="gallery-piece-heading"><span class="gallery-num">04</span>Public Interventions</div>
       <div class="gallery-piece-images">
         <div class="gallery-cell"><img src="pieces/images/p9_img04.jpg" loading="lazy" alt="Public Interventions" /><div class="gallery-cell-title">View 1</div></div>
         <div class="gallery-cell"><img src="pieces/images/p9_img07.jpg" loading="lazy" alt="Public Interventions" /><div class="gallery-cell-title">View 2</div></div>
@@ -9865,7 +9932,7 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
     </div>
 
     <div class="gallery-piece-group" data-piece="p3">
-      <div class="gallery-piece-heading">Love Each Other</div>
+      <div class="gallery-piece-heading"><span class="gallery-num">05</span>Love Each Other</div>
       <div class="gallery-piece-images">
         <div class="gallery-cell"><img src="pieces/images/p3_img00.jpg" loading="lazy" alt="Love Each Other" /><div class="gallery-cell-title">View 1</div></div>
         <div class="gallery-cell"><img src="pieces/images/p3_img01.jpg" loading="lazy" alt="Love Each Other" /><div class="gallery-cell-title">View 2</div></div>
@@ -9874,7 +9941,7 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
     </div>
 
     <div class="gallery-piece-group" data-piece="p5">
-      <div class="gallery-piece-heading">For Santayana</div>
+      <div class="gallery-piece-heading"><span class="gallery-num">06</span>For Santayana</div>
       <div class="gallery-piece-images">
         <div class="gallery-cell"><img src="pieces/images/p5_img00.jpg" loading="lazy" alt="For Santayana" /><div class="gallery-cell-title">View 1</div></div>
         <div class="gallery-cell"><img src="pieces/images/p5_img01.jpg" loading="lazy" alt="For Santayana" /><div class="gallery-cell-title">View 2</div></div>
@@ -9883,7 +9950,7 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
     </div>
 
     <div class="gallery-piece-group" data-piece="p4">
-      <div class="gallery-piece-heading">Denying a Third Choice</div>
+      <div class="gallery-piece-heading"><span class="gallery-num">07</span>Denying a Third Choice</div>
       <div class="gallery-piece-images">
         <div class="gallery-cell"><img src="pieces/images/p4_img00.jpg" loading="lazy" alt="Denying a Third Choice" /><div class="gallery-cell-title">View 1</div></div>
         <div class="gallery-cell"><img src="pieces/images/p4_img01.jpg" loading="lazy" alt="Denying a Third Choice" /><div class="gallery-cell-title">View 2</div></div>
@@ -9892,7 +9959,7 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
     </div>
 
     <div class="gallery-piece-group" data-piece="p6">
-      <div class="gallery-piece-heading">For Your Eyes Only</div>
+      <div class="gallery-piece-heading"><span class="gallery-num">08</span>For Your Eyes Only</div>
       <div class="gallery-piece-images">
         <div class="gallery-cell"><img src="pieces/images/p6_img00.jpg" loading="lazy" alt="For Your Eyes Only" /><div class="gallery-cell-title">View 1</div></div>
         <div class="gallery-cell"><img src="pieces/images/p6_img01.jpg" loading="lazy" alt="For Your Eyes Only" /><div class="gallery-cell-title">View 2</div></div>
@@ -9901,7 +9968,7 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
     </div>
 
     <div class="gallery-piece-group" data-piece="p8">
-      <div class="gallery-piece-heading">All at Once</div>
+      <div class="gallery-piece-heading"><span class="gallery-num">09</span>All at Once</div>
       <div class="gallery-piece-images">
         <div class="gallery-cell"><img src="pieces/images/p8_img00.jpg" loading="lazy" alt="All at Once" /><div class="gallery-cell-title">View 1</div></div>
         <div class="gallery-cell"><img src="pieces/images/p8_img01.jpg" loading="lazy" alt="All at Once" /><div class="gallery-cell-title">View 2</div></div>
@@ -9909,7 +9976,7 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
     </div>
 
     <div class="gallery-piece-group" data-piece="p10">
-      <div class="gallery-piece-heading">My Agaseke</div>
+      <div class="gallery-piece-heading"><span class="gallery-num">10</span>My Agaseke</div>
       <div class="gallery-piece-images">
         <div class="gallery-cell"><img src="pieces/images/p10_img19.jpg" loading="lazy" alt="My Agaseke" /><div class="gallery-cell-title">View 1</div></div>
         <div class="gallery-cell"><img src="pieces/images/p10_img20.jpg" loading="lazy" alt="My Agaseke" /><div class="gallery-cell-title">View 2</div></div>
@@ -9919,6 +9986,19 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
         <div class="gallery-cell"><img src="pieces/images/p10_img16.jpg" loading="lazy" alt="My Agaseke" /><div class="gallery-cell-title">View 6</div></div>
         <div class="gallery-cell"><img src="pieces/images/p10_img17.jpg" loading="lazy" alt="My Agaseke" /><div class="gallery-cell-title">View 7</div></div>
       </div>
+    </div>
+
+    <div class="gallery-bonus">
+      <div class="gallery-bonus-heading">Bonus: Studio Glimpse</div>
+      <div class="gallery-bonus-images">
+        <img src="pieces/images/studio1.jpg" loading="lazy" alt="Simon Foreman, For Johns — full studio view" />
+        <img src="pieces/images/studio2.jpg" loading="lazy" alt="Simon Foreman, For Johns — detail" />
+      </div>
+    </div>
+
+    <div class="gallery-modal-buttons">
+      <button class="gallery-btn gallery-btn-close" id="gallery-btn-close">Close</button>
+      <button class="gallery-btn gallery-btn-skip" id="gallery-btn-skip">Close & Skip to Next Section</button>
     </div>
 
   </div>
@@ -9975,8 +10055,15 @@ document.querySelectorAll('.piece-desc-link').forEach(function(btn) {
   }
 
   closeBtn.addEventListener('click', closeModal);
+  document.getElementById('gallery-btn-close').addEventListener('click', closeModal);
   modal.addEventListener('click', function(e) {
     if (e.target === modal) closeModal();
+  });
+
+  document.getElementById('gallery-btn-skip').addEventListener('click', function() {
+    closeModal();
+    var nextSection = document.getElementById('sec-work');
+    if (nextSection) nextSection.scrollIntoView({ behavior: 'smooth' });
   });
 
   document.querySelectorAll('.gallery-cell').forEach(function(cell) {
