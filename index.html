@@ -1504,14 +1504,18 @@ s::after {
   letter-spacing: 0.1em;
 }
 
+#raps-center-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
 #raps-controls {
   position: relative;
   z-index: 10;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 0;
+  gap: 20px;
 }
 
 #sec-songs .ctrl-btn {
@@ -1684,11 +1688,12 @@ s::after {
 }
 
 #raps-volume-wrap {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 10px;
-  margin-top: 16px;
-  padding-top: 14px;
+  margin-top: 14px;
+  padding-top: 12px;
   border-top: 1px solid rgba(255,255,255,0.06);
 }
 
@@ -1719,30 +1724,27 @@ s::after {
 }
 #raps-keep-playing {
   font-family: 'Nunito', sans-serif;
-  font-weight: 300;
-  font-size: 0.55rem;
-  letter-spacing: 0.1em;
+  font-weight: 400;
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.22);
   background: none;
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 3px;
-  padding: 3px 8px;
+  border: none;
+  border-bottom: 1px solid transparent;
+  padding: 0;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-left: auto;
+  transition: color 0.2s, border-color 0.2s;
   white-space: nowrap;
 }
-#raps-keep-playing:hover { color: rgba(255,255,255,0.5); border-color: rgba(255,255,255,0.25); }
+#raps-keep-playing:hover { color: rgba(255,255,255,0.45); }
 #raps-keep-playing.active {
-  color: rgba(0,0,0,0.9);
-  background: rgba(200,170,120,0.85);
-  border-color: rgba(200,170,120,0.85);
+  color: rgba(200,170,120,0.9);
+  border-bottom-color: rgba(200,170,120,0.5);
 }
 @media (max-width: 768px) {
   #raps-keep-playing {
-    font-size: 0.7rem;
-    padding: 6px 12px;
+    font-size: 0.6rem;
     -webkit-tap-highlight-color: transparent;
   }
 }
@@ -1756,16 +1758,17 @@ s::after {
   #raps-time-display { font-size: 0.65rem; }
   #raps-play-btn { width: 52px; height: 52px; font-size: 1.4rem; }
   #sec-songs .ctrl-btn { font-size: 1rem; padding: 8px; }
-  #raps-controls { gap: 26px; margin-top: 2px; }
+  #raps-center-row { margin-top: 8px; }
+  #raps-controls { gap: 22px; }
   #raps-progress-bar { height: 3px; }
   #raps-progress-wrap { margin-top: 8px; }
-  #raps-volume-wrap { margin-top: 10px; }
+  #raps-volume-wrap { margin-top: 10px; padding-top: 10px; }
   #raps-volume-icon { font-size: 0.85rem; }
-  #raps-volume-slider { width: 90px; height: 4px; }
+  #raps-volume-slider { height: 4px; }
   #raps-volume-slider::-webkit-slider-thumb { width: 14px; height: 14px; }
   #raps-track-list { padding: 10px 0 14px; max-height: 18vh; }
   #sec-songs .track-row { padding: 8px 16px; gap: 10px; }
-  #raps-lyrics-toggle { margin-top: 12px; }
+  .lyrics-toggle-btn { font-size: 0.6rem; }
   #sec-songs .track-num { font-size: 0.85rem; width: 20px; }
   #sec-songs .track-thumb { width: 44px; height: 44px; }
   #sec-songs .track-info-title { font-size: 1rem; }
@@ -1776,33 +1779,41 @@ s::after {
 /* === LYRICS TOGGLE === */
 #raps-lyrics-toggle {
   display: flex;
-  justify-content: center;
-  margin-top: 18px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
 }
 .lyrics-toggle-btn {
   font-family: 'Nunito', sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 0.1em;
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   background: none;
-  border: 1px solid rgba(200,170,120,0.2);
-  color: rgba(255,255,255,0.3);
-  padding: 5px 18px;
+  border: none;
+  color: rgba(255,255,255,0.22);
+  padding: 0;
   cursor: none;
-  transition: color 0.2s, background 0.2s;
+  transition: color 0.2s;
+  position: relative;
 }
-.lyrics-toggle-btn:first-child {
-  border-radius: 24px 0 0 24px;
-  border-right: none;
-}
-.lyrics-toggle-btn:last-child {
-  border-radius: 0 24px 24px 0;
+.lyrics-toggle-btn::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0; right: 0;
+  height: 1px;
+  background: rgba(200,170,120,0.7);
+  transform: scaleX(0);
+  transition: transform 0.2s ease;
+  transform-origin: left;
 }
 .lyrics-toggle-btn.active {
   color: rgba(200,170,120,0.9);
-  background: rgba(200,170,120,0.1);
 }
-.lyrics-toggle-btn:hover { color: rgba(200,170,120,0.6); }
+.lyrics-toggle-btn.active::after {
+  transform: scaleX(1);
+}
+.lyrics-toggle-btn:hover { color: rgba(200,170,120,0.55); }
 #raps-lyrics-panel {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -4778,15 +4789,16 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>
 
-      <div id="raps-controls">
-        <button class="ctrl-btn" id="raps-prev-btn">⟨⟨</button>
-        <button id="raps-play-btn">▶</button>
-        <button class="ctrl-btn" id="raps-next-btn">⟩⟩</button>
-      </div>
-
-      <div id="raps-lyrics-toggle">
-        <button class="lyrics-toggle-btn active" id="raps-btn-viz">Visualizer</button>
-        <button class="lyrics-toggle-btn" id="raps-btn-lyrics">Lyrics</button>
+      <div id="raps-center-row">
+        <div id="raps-controls">
+          <button class="ctrl-btn" id="raps-prev-btn">⟨⟨</button>
+          <button id="raps-play-btn">▶</button>
+          <button class="ctrl-btn" id="raps-next-btn">⟩⟩</button>
+        </div>
+        <div id="raps-lyrics-toggle">
+          <button class="lyrics-toggle-btn active" id="raps-btn-viz">Visualizer</button>
+          <button class="lyrics-toggle-btn" id="raps-btn-lyrics">Lyrics</button>
+        </div>
       </div>
 
       <div id="raps-volume-wrap">
