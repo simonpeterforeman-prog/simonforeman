@@ -1771,6 +1771,93 @@ s::after {
   #sec-songs .track-dur { font-size: 0.7rem; }
 }
 
+/* === LYRICS TOGGLE === */
+#raps-lyrics-toggle {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin-top: 10px;
+}
+.lyrics-toggle-btn {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: none;
+  border: 1px solid rgba(200,170,120,0.2);
+  color: rgba(255,255,255,0.3);
+  padding: 4px 14px;
+  border-radius: 24px;
+  cursor: none;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.lyrics-toggle-btn.active {
+  color: rgba(200,170,120,0.85);
+  border-color: rgba(200,170,120,0.4);
+  background: rgba(200,170,120,0.06);
+}
+.lyrics-toggle-btn:hover { color: rgba(200,170,120,0.6); border-color: rgba(200,170,120,0.3); }
+#raps-lyrics-panel {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 3;
+  display: none;
+  pointer-events: none;
+}
+#raps-lyrics-panel.active { display: block; pointer-events: auto; }
+#raps-lyrics-scroll {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  overflow-y: auto;
+  padding: 20vh 18% 55vh;
+  box-sizing: border-box;
+  text-align: center;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 38%, black 30%, transparent 80%),
+              linear-gradient(to bottom, transparent 0%, black 16%, black 52%, transparent 68%);
+  mask-composite: intersect;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 16%, black 52%, transparent 68%);
+}
+#raps-lyrics-scroll::-webkit-scrollbar { display: none; }
+.lyrics-line {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.8rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.15);
+  text-align: center;
+  display: block;
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  text-wrap: balance;
+  transform: scale(1);
+  transform-origin: center center;
+  will-change: transform, color;
+  transition: color 0.35s ease, transform 0.3s ease;
+}
+.lyrics-line.lyrics-active {
+  color: rgba(200,170,120,0.95);
+  transform: scale(1.18);
+}
+.lyrics-line.lyrics-past {
+  color: rgba(255,255,255,0.05);
+}
+.lyrics-break { display: block; height: 0.7em; }
+#raps-lyrics-none {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+@media (max-width: 768px) {
+  #raps-lyrics-scroll { padding: 15vh 6% 55vh; }
+  .lyrics-line { font-size: 1.3rem; }
+  .lyrics-line.lyrics-active { transform: scale(1.15); }
+}
+
 /* === FAMILY PHOTOS SECTION (coverflow) === */
 #sec-family {
   position: relative;
@@ -4655,6 +4742,9 @@ document.addEventListener('DOMContentLoaded', function() {
   </div>
   <div id="raps-overlay"></div>
   <div id="raps-viz-container"></div>
+  <div id="raps-lyrics-panel">
+    <div id="raps-lyrics-scroll"></div>
+  </div>
 
   <div id="raps-app">
     <div id="raps-now-playing">
@@ -4683,6 +4773,11 @@ document.addEventListener('DOMContentLoaded', function() {
         <button class="ctrl-btn" id="raps-prev-btn">⟨⟨</button>
         <button id="raps-play-btn">▶</button>
         <button class="ctrl-btn" id="raps-next-btn">⟩⟩</button>
+      </div>
+
+      <div id="raps-lyrics-toggle">
+        <button class="lyrics-toggle-btn active" id="raps-btn-viz">Visualizer</button>
+        <button class="lyrics-toggle-btn" id="raps-btn-lyrics">Lyrics</button>
       </div>
 
       <div id="raps-volume-wrap">
@@ -9458,7 +9553,8 @@ requestAnimationFrame(draw);
     play: function() { rapsPlayTrack(); },
     pause: function() { rapsPauseTrack(); },
     isPlaying: function() { return rapsIsPlaying; },
-    enableKeep: function() { if (!rapsKeepPlaying) rapsToggleKeep(); }
+    enableKeep: function() { if (!rapsKeepPlaying) rapsToggleKeep(); },
+    getCurrentTime: function() { return rapsGetCurrentTime(); }
   };
 
   // Register songs section with site controller
@@ -9484,6 +9580,188 @@ requestAnimationFrame(draw);
   rapsUpdateUI();
 })();
 
+
+// === LYRICS TOGGLE ===
+(function() {
+  // Timed lyrics: { t: seconds, line: string } — null entries = stanza break spacer
+  var _lyricsData = {
+    'Second Born': [
+      { t: 5,   line: "Let's fall in line now" },
+      { t: 8,   line: "Let's fall in line now" },
+      { t: 11,  line: "Let's fall in line now" },
+      { t: 14,  line: "Let's fall in line now" },
+      null,
+      { t: 17,  line: "You playing games with this" },
+      { t: 19,  line: "I'm playing games with this" },
+      { t: 21,  line: "You playing games with this" },
+      { t: 23,  line: "I'm playing games with this" },
+      { t: 24,  line: "You playing games with this" },
+      { t: 25,  line: "I'm playing games with this" },
+      null,
+      { t: 26,  line: "Let's talk about it" },
+      { t: 28,  line: "Yo kid I know who you are and it's time we talk about it" },
+      { t: 31,  line: "That 50 ton gorilla's in your lap I can't walk around it" },
+      { t: 34,  line: "Let's do the waltz now, leave our shadows across town" },
+      { t: 37,  line: "Take our heads off and look down, see what your hook found" },
+      null,
+      { t: 39,  line: "People fast a lie, they love you then they trash your life" },
+      { t: 42,  line: "When disaster strikes they ass take flight" },
+      { t: 44,  line: "Yeah don't ask me why your memories pass me by" },
+      { t: 47,  line: "I'd be the last to cry but still I'm glassy-eyed" },
+      { t: 49,  line: "Seeing you bastardized by masterminds" },
+      null,
+      { t: 51,  line: "If you wondering, I feed you cause you hungry" },
+      { t: 53,  line: "Not cause you my underling, the truth is you the younger me" },
+      { t: 56,  line: "I'm just trying to slap some sense in ya" },
+      { t: 58,  line: "That utopian mind state is to harbinger" },
+      { t: 60,  line: "Leave your treasure with a carpenter" },
+      null,
+      { t: 62,  line: "It's like a piece of paper to make your nature" },
+      { t: 64,  line: "Write on or wad it in your hand" },
+      { t: 66,  line: "Either way and share your features" },
+      null,
+      { t: 68,  line: "Pick your weapon, a quick suggestion" },
+      { t: 70,  line: "Your misperceptions of imperfection" },
+      { t: 72,  line: "A ballad for intercession" },
+      { t: 73,  line: "It's a mess I left you guessing" },
+      { t: 74,  line: "Confess that I twist the questions" },
+      { t: 76,  line: "Exist in the impression that I'm just your self-expression" },
+      null,
+      { t: 79,  line: "A figment of imagination, a mental aberration" },
+      { t: 82,  line: "Another victim of a self-inflicted laceration" },
+      null,
+      { t: 85,  line: "When you rhyme yourself, then try to find yourself" },
+      { t: 87,  line: "Leave your veins refillable, inject them full of syllables" },
+      { t: 90,  line: "Inflected with adrenaline, infected by the elements" },
+      { t: 93,  line: "A collective breath will lock it in, the oxygen will box it in" },
+      null,
+      { t: 96,  line: "Born alone, die alone, soul fly miles" },
+      { t: 98,  line: "From home to a throne on piles of gold and a phone with no dial tone" },
+      { t: 102, line: "There you'll meet someone when dreaming of being something" },
+      { t: 104, line: "Revealing that building your craft ain't killing your feelings" },
+      { t: 107, line: "Cause they shining like diamonds to cut the glass that you see through" },
+      { t: 110, line: "That's why you rhyming Simon, try to find your mind is equal" },
+      null,
+      { t: 112, line: "It's my turn now" },
+      { t: 113, line: "The light is on and I'm finally feeling the night is gone" },
+      { t: 116, line: "At the sight of dawn I relinquish the power right and wrong" },
+      { t: 119, line: "It might be long till I'm seeing these new places" },
+      { t: 121, line: "So in the meantime I'll be wearing my two faces" },
+      { t: 124, line: "And I'll speak with a forked tongue" },
+      null,
+      { t: 126, line: "Even when I done smoked none of them freaks that you've poked fun" },
+      { t: 128, line: "From me the heart that I just spoke from" },
+      { t: 130, line: "The slogans I hope none get open and they're broken" },
+      { t: 133, line: "Or coincide with a homicide when mama said to go inside" },
+      { t: 135, line: "The stain of every raindrop taught me not to blame God" },
+      { t: 138, line: "The pain is when the brain stopped making all these lame props" },
+      null,
+      { t: 141, line: "There ain't no younger you, under you for you to wander through" },
+      { t: 144, line: "You slumber through a number of clues, refuse to lose your under-roos" },
+      { t: 147, line: "You played on it, took my game and put your name on it" },
+      { t: 150, line: "Broke your main promise, you tried to be me, now stay honest" },
+      null,
+      { t: 153, line: "You were sleeping way before the boys, pulled you ashore" },
+      { t: 156, line: "It's time to wake up now and take a bow" }
+    ]
+  };
+
+  var panel    = document.getElementById('raps-lyrics-panel');
+  var scroll   = document.getElementById('raps-lyrics-scroll');
+  var btnViz   = document.getElementById('raps-btn-viz');
+  var btnLyrics= document.getElementById('raps-btn-lyrics');
+  var vizContainer = document.getElementById('raps-viz-container');
+  var _lyricsMode = false;
+  var _rafId = null;
+  var _activeIdx = -1;
+  var _timedLines = []; // only the { t, line } entries (no nulls), with their DOM el refs
+
+  function renderLyrics(title) {
+    var data = _lyricsData[title];
+    _timedLines = [];
+    _activeIdx = -1;
+    if (!data) {
+      scroll.innerHTML = '<span id="raps-lyrics-none">No lyrics available</span>';
+      return;
+    }
+    var html = '';
+    var idx = 0;
+    data.forEach(function(entry) {
+      if (entry === null) {
+        html += '<span class="lyrics-break"></span>';
+      } else {
+        html += '<span class="lyrics-line" data-idx="' + idx + '">' + entry.line + '</span>';
+        idx++;
+      }
+    });
+    scroll.innerHTML = html;
+    // Build timed lines index with DOM refs
+    var spans = scroll.querySelectorAll('.lyrics-line');
+    var tIdx = 0;
+    data.forEach(function(entry) {
+      if (entry !== null) {
+        _timedLines.push({ t: entry.t, el: spans[tIdx] });
+        tIdx++;
+      }
+    });
+    scroll.scrollTop = 0;
+  }
+
+  function syncLyrics() {
+    if (!_lyricsMode || !_timedLines.length) { _rafId = requestAnimationFrame(syncLyrics); return; }
+    var ct = (window._rapsControl && window._rapsControl.getCurrentTime) ? window._rapsControl.getCurrentTime() : 0;
+    // Find current line: largest t <= ct
+    var cur = -1;
+    for (var i = 0; i < _timedLines.length; i++) {
+      if (_timedLines[i].t <= ct) cur = i; else break;
+    }
+    if (cur !== _activeIdx) {
+      _activeIdx = cur;
+      _timedLines.forEach(function(item, i) {
+        item.el.classList.toggle('lyrics-active', i === cur);
+        item.el.classList.toggle('lyrics-past', i < cur);
+      });
+      if (cur >= 0) {
+        var el = _timedLines[cur].el;
+        var scrollTop = el.offsetTop - scroll.clientHeight * 0.2 + el.clientHeight / 2;
+        scroll.scrollTo({ top: scrollTop, behavior: 'smooth' });
+      }
+    }
+    _rafId = requestAnimationFrame(syncLyrics);
+  }
+
+  function setMode(mode) {
+    _lyricsMode = (mode === 'lyrics');
+    if (_lyricsMode) {
+      panel.classList.add('active');
+      vizContainer.style.opacity = '0';
+      btnViz.classList.remove('active');
+      btnLyrics.classList.add('active');
+      var title = document.getElementById('raps-track-title');
+      if (title) renderLyrics(title.textContent.trim());
+      if (_rafId) cancelAnimationFrame(_rafId);
+      _rafId = requestAnimationFrame(syncLyrics);
+    } else {
+      panel.classList.remove('active');
+      vizContainer.style.opacity = '1';
+      btnViz.classList.add('active');
+      btnLyrics.classList.remove('active');
+      if (_rafId) { cancelAnimationFrame(_rafId); _rafId = null; }
+    }
+  }
+
+  btnViz.addEventListener('click', function() { setMode('viz'); });
+  btnLyrics.addEventListener('click', function() { setMode('lyrics'); });
+
+  // Update lyrics when track changes
+  var trackTitle = document.getElementById('raps-track-title');
+  if (trackTitle) {
+    var observer = new MutationObserver(function() {
+      if (_lyricsMode) { renderLyrics(trackTitle.textContent.trim()); _activeIdx = -1; }
+    });
+    observer.observe(trackTitle, { childList: true, characterData: true, subtree: true });
+  }
+})();
 
 // === INITIAL ACTIVATION (after all sections registered) ===
 _currentPiece = null;
