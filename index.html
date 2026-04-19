@@ -1545,21 +1545,26 @@ s::after {
 
 #raps-play-btn {
   border-radius: 5px;
-  background: rgba(255,255,255,0.82);
-  border: none;
-  color: rgba(0,0,0,0.72);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.7);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.15s;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
   font-size: 1.4rem;
   width: 100%;
 }
-#raps-play-btn:hover { background: rgba(255,255,255,0.92); }
+#raps-play-btn.playing {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.88);
+}
+#raps-play-btn:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); }
 
 #raps-play-btn:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.12);
   color: #fff;
 }
 
@@ -9444,7 +9449,7 @@ requestAnimationFrame(draw);
       var dm = Math.floor(rapsTrackDuration / 60), ds = Math.floor(rapsTrackDuration % 60);
       document.getElementById('raps-time-total').textContent = dm + ':' + ds.toString().padStart(2, '0');
       rapsPausedAt = 0; rapsStartPlayback(0);
-      rapsIsPlaying = true; document.getElementById('raps-play-btn').textContent = '❚❚'; rapsUpdateActiveRow();
+      rapsIsPlaying = true; var _pb = document.getElementById('raps-play-btn'); _pb.textContent = '❚❚'; _pb.classList.add('playing'); rapsUpdateActiveRow();
     } catch(e) { }
   }
 
@@ -9456,14 +9461,14 @@ requestAnimationFrame(draw);
     if (rapsAudioCtx.state === 'suspended') rapsAudioCtx.resume();
     if (!rapsCurrentBuffer) { rapsLoadAndPlay(); return; }
     rapsStartPlayback(rapsPausedAt);
-    rapsIsPlaying = true; document.getElementById('raps-play-btn').textContent = '❚❚'; rapsUpdateActiveRow();
+    rapsIsPlaying = true; var _pb = document.getElementById('raps-play-btn'); _pb.textContent = '❚❚'; _pb.classList.add('playing'); rapsUpdateActiveRow();
   }
 
   function rapsPauseTrack() {
     if (!rapsIsPlaying) return;
     rapsPausedAt = rapsGetCurrentTime();
     if (rapsCurrentSource) { rapsCurrentSource.onended = null; rapsCurrentSource.stop(); rapsCurrentSource.disconnect(); rapsCurrentSource = null; }
-    rapsIsPlaying = false; document.getElementById('raps-play-btn').textContent = '▶'; rapsUpdateActiveRow();
+    rapsIsPlaying = false; var _pb = document.getElementById('raps-play-btn'); _pb.textContent = '▶'; _pb.classList.remove('playing'); rapsUpdateActiveRow();
   }
 
   function rapsSeekTo(pct) {
