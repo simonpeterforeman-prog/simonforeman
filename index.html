@@ -1402,7 +1402,7 @@ s::after {
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 14px;
-  padding: 18px 22px 16px;
+  padding: 22px 22px 20px;
   cursor: auto;
 }
 
@@ -1544,20 +1544,21 @@ s::after {
 #sec-songs .ctrl-btn:hover { color: #fff; }
 
 #raps-play-btn {
-  width: 70px;
-  height: 70px;
+  width: 78px;
+  height: 78px;
   flex-shrink: 0;
   border-radius: 50%;
-  background: rgba(255,255,255,0.09);
-  border: 1px solid rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.85);
+  background: none;
+  border: 1.5px solid rgba(255,255,255,0.28);
+  color: rgba(255,255,255,0.88);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.2s;
+  transition: background 0.2s, border-color 0.2s;
   font-size: 1.4rem;
 }
+#raps-play-btn:hover { background: rgba(255,255,255,0.06); }
 
 #raps-play-btn:hover {
   background: rgba(255,255,255,0.15);
@@ -1757,12 +1758,12 @@ s::after {
 
 /* Songs mobile enlargement */
 @media (max-width: 768px) {
-  #raps-now-playing { width: 92vw; max-width: 92vw; padding: 14px 18px 10px; }
+  #raps-now-playing { width: 92vw; max-width: 92vw; padding: 18px 18px 16px; }
   #raps-album-art { width: 52px; height: 52px; }
   #raps-track-title { font-size: 1rem; }
   #raps-track-artist, #raps-track-album { font-size: 0.65rem; }
   #raps-time-display { font-size: 0.65rem; }
-  #raps-play-btn { width: 60px; height: 60px; font-size: 1.35rem; }
+  #raps-play-btn { width: 68px; height: 68px; font-size: 1.4rem; }
   #sec-songs .ctrl-btn { font-size: 0.9rem; padding: 6px; }
   #raps-progress-outer { margin-top: 8px; gap: 8px; }
   #raps-play-row { margin-top: 10px; gap: 12px; }
@@ -1771,7 +1772,7 @@ s::after {
   #raps-volume-icon { font-size: 0.85rem; }
   #raps-volume-slider { height: 4px; }
   #raps-volume-slider::-webkit-slider-thumb { width: 14px; height: 14px; }
-  #raps-track-list { padding: 10px 0 14px; max-height: 18vh; }
+  #raps-track-list { padding: 10px 0 14px; max-height: 26vh; }
   #sec-songs .track-row { padding: 8px 16px; gap: 10px; }
   .lyrics-toggle-btn { font-size: 0.58rem; padding: 6px 8px; }
   #sec-songs .track-num { font-size: 0.85rem; width: 20px; }
@@ -1783,12 +1784,12 @@ s::after {
 
 /* === LYRICS TOGGLE === */
 #raps-lyrics-toggle {
-  flex: 1;
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 5px;
   overflow: hidden;
+  width: 100px;
 }
 .lyrics-toggle-btn {
   font-family: 'Nunito', sans-serif;
