@@ -1510,9 +1510,9 @@ s::after {
 }
 
 #raps-play-row {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 10px;
   margin-top: 14px;
 }
 #raps-bottom-row {
@@ -1544,12 +1544,9 @@ s::after {
 #sec-songs .ctrl-btn:hover { color: #fff; }
 
 #raps-play-btn {
-  width: 78px;
-  height: 78px;
-  flex-shrink: 0;
-  border-radius: 50%;
+  border-radius: 5px;
   background: none;
-  border: 1.5px solid rgba(255,255,255,0.28);
+  border: 1px solid rgba(255,255,255,0.18);
   color: rgba(255,255,255,0.88);
   cursor: pointer;
   display: flex;
@@ -1557,6 +1554,7 @@ s::after {
   justify-content: center;
   transition: background 0.2s, border-color 0.2s;
   font-size: 1.4rem;
+  width: 100%;
 }
 #raps-play-btn:hover { background: rgba(255,255,255,0.06); }
 
@@ -1763,7 +1761,7 @@ s::after {
   #raps-track-title { font-size: 1rem; }
   #raps-track-artist, #raps-track-album { font-size: 0.65rem; }
   #raps-time-display { font-size: 0.65rem; }
-  #raps-play-btn { width: 68px; height: 68px; font-size: 1.4rem; }
+  #raps-play-btn { font-size: 1.3rem; }
   #sec-songs .ctrl-btn { font-size: 0.9rem; padding: 6px; }
   #raps-progress-outer { margin-top: 8px; gap: 8px; }
   #raps-play-row { margin-top: 10px; gap: 12px; }
@@ -1789,7 +1787,6 @@ s::after {
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 5px;
   overflow: hidden;
-  width: 100px;
 }
 .lyrics-toggle-btn {
   font-family: 'Nunito', sans-serif;
