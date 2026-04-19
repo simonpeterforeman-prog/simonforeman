@@ -1504,18 +1504,26 @@ s::after {
   letter-spacing: 0.1em;
 }
 
-#raps-center-row {
+#raps-play-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-top: 10px;
+  gap: 16px;
+  margin-top: 12px;
+}
+#raps-bottom-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 #raps-controls {
   position: relative;
   z-index: 10;
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 14px;
 }
 
 #sec-songs .ctrl-btn {
@@ -1531,8 +1539,9 @@ s::after {
 #sec-songs .ctrl-btn:hover { color: #fff; }
 
 #raps-play-btn {
-  width: 40px;
-  height: 40px;
+  width: 58px;
+  height: 58px;
+  flex-shrink: 0;
   border-radius: 50%;
   background: rgba(255,255,255,0.08);
   border: 1px solid rgba(255,255,255,0.12);
@@ -1542,7 +1551,7 @@ s::after {
   align-items: center;
   justify-content: center;
   transition: all 0.2s;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 #raps-play-btn:hover {
@@ -1687,15 +1696,6 @@ s::after {
   100% { transform: scaleY(1); }
 }
 
-#raps-volume-wrap {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 10px;
-  margin-top: 14px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-}
 
 #raps-volume-icon {
   font-size: 0.7rem;
@@ -1705,7 +1705,8 @@ s::after {
 }
 
 #raps-volume-slider {
-  width: 80px;
+  flex: 1;
+  min-width: 60px;
   height: 3px;
   -webkit-appearance: none;
   background: rgba(255,255,255,0.1);
@@ -1756,19 +1757,20 @@ s::after {
   #raps-track-title { font-size: 1rem; }
   #raps-track-artist, #raps-track-album { font-size: 0.65rem; }
   #raps-time-display { font-size: 0.65rem; }
-  #raps-play-btn { width: 52px; height: 52px; font-size: 1.4rem; }
-  #sec-songs .ctrl-btn { font-size: 1rem; padding: 8px; }
-  #raps-center-row { margin-top: 8px; }
-  #raps-controls { gap: 22px; }
+  #raps-play-btn { width: 52px; height: 52px; font-size: 1.3rem; }
+  #sec-songs .ctrl-btn { font-size: 0.9rem; padding: 6px; }
+  #raps-play-row { margin-top: 10px; gap: 12px; }
+  #raps-bottom-row { margin-top: 10px; padding-top: 10px; gap: 10px; }
+  #raps-controls { gap: 16px; }
   #raps-progress-bar { height: 3px; }
   #raps-progress-wrap { margin-top: 8px; }
-  #raps-volume-wrap { margin-top: 10px; padding-top: 10px; }
   #raps-volume-icon { font-size: 0.85rem; }
   #raps-volume-slider { height: 4px; }
   #raps-volume-slider::-webkit-slider-thumb { width: 14px; height: 14px; }
   #raps-track-list { padding: 10px 0 14px; max-height: 18vh; }
   #sec-songs .track-row { padding: 8px 16px; gap: 10px; }
   .lyrics-toggle-btn { font-size: 0.6rem; }
+  #raps-lyrics-toggle { padding: 8px 12px; }
   #sec-songs .track-num { font-size: 0.85rem; width: 20px; }
   #sec-songs .track-thumb { width: 44px; height: 44px; }
   #sec-songs .track-info-title { font-size: 1rem; }
@@ -1778,10 +1780,12 @@ s::after {
 
 /* === LYRICS TOGGLE === */
 #raps-lyrics-toggle {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 5px;
+  gap: 6px;
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 10px 14px;
 }
 .lyrics-toggle-btn {
   font-family: 'Nunito', sans-serif;
@@ -4789,19 +4793,19 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
       </div>
 
-      <div id="raps-center-row">
-        <div id="raps-controls">
-          <button class="ctrl-btn" id="raps-prev-btn">⟨⟨</button>
-          <button id="raps-play-btn">▶</button>
-          <button class="ctrl-btn" id="raps-next-btn">⟩⟩</button>
-        </div>
+      <div id="raps-play-row">
+        <button id="raps-play-btn">▶</button>
         <div id="raps-lyrics-toggle">
           <button class="lyrics-toggle-btn active" id="raps-btn-viz">Visualizer</button>
           <button class="lyrics-toggle-btn" id="raps-btn-lyrics">Lyrics</button>
         </div>
       </div>
 
-      <div id="raps-volume-wrap">
+      <div id="raps-bottom-row">
+        <div id="raps-controls">
+          <button class="ctrl-btn" id="raps-prev-btn">⟨⟨</button>
+          <button class="ctrl-btn" id="raps-next-btn">⟩⟩</button>
+        </div>
         <svg id="raps-volume-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path class="vol-wave" d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
         <input type="range" id="raps-volume-slider" min="0" max="1" step="0.01" value="0.5" aria-label="Volume" />
         <button id="raps-keep-playing" title="Play while browsing">Play while browsing</button>
