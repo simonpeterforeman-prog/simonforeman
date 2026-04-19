@@ -10536,6 +10536,8 @@ requestAnimationFrame(draw);
   var _rafId = null;
   var _activeIdx = -1;
   var _timedLines = []; // only the { t, line } entries (no nulls), with their DOM el refs
+  var _scrollTarget = 0;
+  var _scrollCurrent = 0;
 
   function renderLyrics(title) {
     var data = _lyricsData[title];
@@ -10566,6 +10568,8 @@ requestAnimationFrame(draw);
       }
     });
     scroll.scrollTop = 0;
+    _scrollCurrent = 0;
+    _scrollTarget = 0;
   }
 
   function syncLyrics() {
@@ -10584,9 +10588,14 @@ requestAnimationFrame(draw);
       });
       if (cur >= 0) {
         var el = _timedLines[cur].el;
-        var scrollTop = el.offsetTop - scroll.clientHeight * 0.2 + el.clientHeight / 2;
-        scroll.scrollTo({ top: scrollTop, behavior: 'smooth' });
+        _scrollTarget = el.offsetTop - scroll.clientHeight * 0.2 + el.clientHeight / 2;
       }
+    }
+    // Lerp scroll toward target — smooth continuous drift, never snaps
+    var diff = _scrollTarget - _scrollCurrent;
+    if (Math.abs(diff) > 0.5) {
+      _scrollCurrent += diff * 0.045;
+      scroll.scrollTop = _scrollCurrent;
     }
     _rafId = requestAnimationFrame(syncLyrics);
   }
@@ -10600,6 +10609,7 @@ requestAnimationFrame(draw);
       btnLyrics.classList.add('active');
       var title = document.getElementById('raps-track-title');
       if (title) renderLyrics(title.textContent.trim());
+      _scrollCurrent = 0; _scrollTarget = 0;
       if (_rafId) cancelAnimationFrame(_rafId);
       _rafId = requestAnimationFrame(syncLyrics);
     } else {
