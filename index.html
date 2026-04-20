@@ -1599,12 +1599,12 @@ s::after {
   align-items: center;
   padding: 8px 40px;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.5s ease;
   gap: 16px;
 }
 
-#sec-songs .track-row:hover { background: rgba(255,255,255,0.04); }
-#sec-songs .track-row.active { background: rgba(255,255,255,0.06); }
+#sec-songs .track-row:hover { background: rgba(var(--row-rgb), 0.07); }
+#sec-songs .track-row.active { background: rgba(var(--row-rgb), 0.1); }
 
 #sec-songs .track-num {
   width: 24px;
@@ -1614,7 +1614,7 @@ s::after {
   letter-spacing: 0.05em;
 }
 
-#sec-songs .track-row.active .track-num { color: rgba(255,255,255,0.5); }
+#sec-songs .track-row.active .track-num { color: rgba(var(--row-rgb), 0.7); transition: color 0.5s ease; }
 
 #sec-songs .track-thumb {
   width: 36px;
@@ -1645,7 +1645,8 @@ s::after {
   text-overflow: ellipsis;
 }
 
-#sec-songs .track-row.active .track-info-title { color: rgba(255,255,255,0.85); }
+#sec-songs .track-row.active .track-info-title { color: rgba(var(--row-rgb), 0.95); transition: color 0.5s ease; }
+#sec-songs .track-row:hover .track-info-title { color: rgba(var(--row-rgb), 0.8); transition: color 0.5s ease; }
 
 #sec-songs .track-info-album {
   font-size: 0.55rem;
@@ -1669,18 +1670,18 @@ s::after {
   align-items: center;
   gap: 6px;
   padding: 4px 12px;
-  border: 1px solid rgba(200,170,120,0.3);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: 3px;
-  color: rgba(200,170,120,0.5);
+  color: rgba(255,255,255,0.2);
   font-size: 0.55rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
-  transition: border-color 0.3s, color 0.3s;
+  transition: border-color 0.5s ease, color 0.5s ease;
   flex-shrink: 0;
   font-family: 'Nunito', sans-serif;
 }
-#sec-songs .track-dl:hover { border-color: rgba(200,170,120,0.6); color: rgba(200,170,120,0.8); }
+#sec-songs .track-dl:hover { border-color: rgba(var(--row-rgb), 0.6); color: rgba(var(--row-rgb), 0.85); }
 #sec-songs .track-dl svg { width: 12px; height: 12px; stroke: currentColor; fill: none; stroke-width: 1.5; }
 @media (max-width: 768px) {
   #sec-songs .track-dl { padding: 4px; border: none; }
@@ -9427,6 +9428,8 @@ requestAnimationFrame(draw);
     var row = document.createElement('div');
     row.className = 'track-row' + (i === 0 ? ' active' : '');
     var albumClass = t.album.startsWith('Inertia') ? 'art-inertia' : t.album.startsWith("Men's Evil Manners") ? 'art-brassknuckles' : t.album.startsWith('Ratatatmixes') ? 'art-bsides' : 'art-placeholder-bg';
+    var rowRgb = t.album.startsWith('Inertia') ? '200,170,120' : t.album.startsWith("Men's Evil Manners") ? '110,150,205' : '205,115,188';
+    row.style.setProperty('--row-rgb', rowRgb);
     row.innerHTML =
       '<div class="track-num">' + (i + 1) + '</div>' +
       '<div class="eq-bars"><div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div></div>' +
