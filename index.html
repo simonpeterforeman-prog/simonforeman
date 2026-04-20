@@ -272,6 +272,8 @@ body {
   }
 }
 
+:root { --song-rgb: 200, 170, 120; }
+
 /* === GLOBAL UI === */
 
 #cursor-dot {
@@ -1373,6 +1375,7 @@ s::after {
   height: 100%;
   z-index: 2;
   pointer-events: none;
+  transition: opacity 0.5s ease;
 }
 
 #raps-viz-container canvas {
@@ -1397,13 +1400,15 @@ s::after {
   z-index: 10;
   width: 300px;
   max-width: 85vw;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.78);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.13);
   border-radius: 14px;
+  box-shadow: 0 0 80px 55px rgba(0,0,0,0.45);
   padding: 22px 22px 20px;
   cursor: auto;
+  transition: border-color 0.7s ease;
 }
 
 #raps-track-info-row {
@@ -1445,11 +1450,12 @@ s::after {
 #raps-track-title {
   font-size: 1rem;
   font-weight: 500;
-  color: #fff;
+  color: rgba(var(--song-rgb), 0.9);
   letter-spacing: 0.03em;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  transition: color 0.7s ease;
 }
 
 #raps-track-artist {
@@ -1492,10 +1498,10 @@ s::after {
 
 #raps-progress-fill {
   height: 100%;
-  background: rgba(255,255,255,0.5);
+  background: rgba(var(--song-rgb), 0.55);
   border-radius: 2px;
   width: 0%;
-  transition: width 0.1s linear;
+  transition: width 0.1s linear, background-color 0.7s ease;
 }
 
 #raps-progress-bar:hover #raps-progress-fill { background: #fff; }
@@ -1513,7 +1519,8 @@ s::after {
   display: grid;
   grid-template-columns: 1.6fr 3.4fr;
   gap: 10px;
-  margin-top: 18px;
+  margin-top: 14px;
+  align-items: stretch;
 }
 #raps-bottom-row {
   display: flex;
@@ -1534,17 +1541,17 @@ s::after {
 #sec-songs .ctrl-btn {
   background: none;
   border: none;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.4);
   cursor: pointer;
   transition: color 0.2s;
-  font-size: 0.85rem;
-  padding: 6px;
+  font-size: 1.2rem;
+  padding: 4px 6px;
 }
 
-#sec-songs .ctrl-btn:hover { color: #fff; }
+#sec-songs .ctrl-btn:hover { color: rgba(255,255,255,0.85); }
 
 #raps-play-btn {
-  border-radius: 5px;
+  border-radius: 6px;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.1);
   color: rgba(255,255,255,0.7);
@@ -1552,14 +1559,15 @@ s::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
-  font-size: 1.1rem;
+  transition: background 0.7s ease, border-color 0.7s ease, color 0.7s ease;
+  font-size: 1.2rem;
   width: 100%;
+  height: 36px;
 }
 #raps-play-btn.playing {
-  background: rgba(255,255,255,0.09);
-  border-color: rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.88);
+  background: rgba(var(--song-rgb), 0.1);
+  border-color: rgba(var(--song-rgb), 0.3);
+  color: rgba(var(--song-rgb), 0.92);
 }
 #raps-play-btn:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.2); }
 
@@ -1708,9 +1716,10 @@ s::after {
 
 #raps-volume-icon {
   font-size: 0.7rem;
-  color: rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.25);
   cursor: pointer;
   flex-shrink: 0;
+  transition: color 0.3s ease;
 }
 
 #raps-volume-slider {
@@ -1734,24 +1743,56 @@ s::after {
 }
 #raps-keep-playing {
   font-family: 'Nunito', sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 0.52rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 5px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: color 0.7s ease, background 0.7s ease, border-color 0.7s ease;
+  white-space: nowrap;
+  width: 100%;
+  height: 36px;
+}
+#raps-keep-playing:hover { color: rgba(255,255,255,0.6); background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.18); }
+#raps-keep-playing.active {
+  color: rgba(var(--song-rgb), 0.92);
+  background: rgba(var(--song-rgb), 0.08);
+  border-color: rgba(var(--song-rgb), 0.3);
+}
+#raps-loop-btn {
   background: none;
   border: none;
-  border-bottom: 1px solid transparent;
-  padding: 0;
+  color: rgba(255,255,255,0.25);
   cursor: pointer;
-  transition: color 0.2s, border-color 0.2s;
-  white-space: nowrap;
+  transition: color 0.7s ease;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  padding: 2px 4px;
+  gap: 1px;
+  flex-shrink: 0;
 }
-#raps-keep-playing:hover { color: rgba(255,255,255,0.45); }
-#raps-keep-playing.active {
-  color: rgba(200,170,120,0.9);
-  border-bottom-color: rgba(200,170,120,0.5);
+#raps-loop-btn:hover { color: rgba(255,255,255,0.55); }
+#raps-loop-btn.active { color: rgba(var(--song-rgb), 0.9); }
+#raps-loop-indicator {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.38rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0;
+  transition: opacity 0.2s;
+  height: 0.5rem;
+  display: block;
 }
+#raps-loop-btn.active #raps-loop-indicator { opacity: 1; }
 @media (max-width: 768px) {
   #raps-keep-playing {
     font-size: 0.6rem;
@@ -1766,11 +1807,12 @@ s::after {
   #raps-track-title { font-size: 1rem; }
   #raps-track-artist, #raps-track-album { font-size: 0.65rem; }
   #raps-time-display { font-size: 0.65rem; }
-  #raps-play-btn { font-size: 1.1rem; }
-  #sec-songs .ctrl-btn { font-size: 0.9rem; padding: 6px; }
-  #raps-progress-outer { margin-top: 8px; gap: 8px; }
-  #raps-play-row { margin-top: 10px; gap: 12px; }
-  #raps-bottom-row { margin-top: 10px; padding-top: 10px; gap: 10px; }
+  #raps-play-btn { font-size: 1.1rem; width: 100%; height: 36px; }
+  #raps-keep-playing { font-size: 0.58rem; height: 36px; }
+  #sec-songs .ctrl-btn { font-size: 1.2rem; }
+  #raps-progress-outer { margin-top: 10px; gap: 8px; }
+  #raps-play-row { margin-top: 10px; gap: 8px; }
+  #raps-bottom-row { margin-top: 10px; padding-top: 10px; gap: 8px; }
   #raps-progress-bar { height: 3px; }
   #raps-volume-icon { font-size: 0.85rem; }
   #raps-volume-slider { height: 4px; }
@@ -1786,35 +1828,6 @@ s::after {
 }
 
 /* === LYRICS TOGGLE === */
-#raps-lyrics-toggle {
-  display: flex;
-  flex-direction: row;
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 5px;
-  overflow: hidden;
-}
-.lyrics-toggle-btn {
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.52rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  background: none;
-  border: none;
-  color: rgba(255,255,255,0.22);
-  padding: 7px 10px;
-  cursor: none;
-  flex: 1;
-  transition: color 0.2s, background 0.2s;
-  text-align: center;
-}
-.lyrics-toggle-btn:first-child {
-  border-right: 1px solid rgba(255,255,255,0.1);
-}
-.lyrics-toggle-btn.active {
-  background: rgba(255,255,255,0.09);
-  color: rgba(255,255,255,0.75);
-}
-.lyrics-toggle-btn:hover:not(.active) { color: rgba(255,255,255,0.4); }
 #raps-lyrics-panel {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -1827,13 +1840,20 @@ s::after {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   overflow-y: auto;
-  padding: 20vh 18% 55vh;
+  padding: 20vh 18% 78vh;
   box-sizing: border-box;
   text-align: center;
   -ms-overflow-style: none;
   scrollbar-width: none;
   mask-image: radial-gradient(ellipse 54% 44% at 50% 33%, black 15%, rgba(0,0,0,0.55) 38%, transparent 65%);
   -webkit-mask-image: radial-gradient(ellipse 54% 44% at 50% 33%, black 15%, rgba(0,0,0,0.55) 38%, transparent 65%);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 1.1s ease, transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#raps-lyrics-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
 }
 #raps-lyrics-scroll::-webkit-scrollbar { display: none; }
 .lyrics-line {
@@ -1854,7 +1874,7 @@ s::after {
   transition: color 0.35s ease, transform 0.3s ease;
 }
 .lyrics-line.lyrics-active {
-  color: rgba(200,170,120,0.95);
+  color: var(--lyrics-color, rgba(200,170,120,0.95));
   transform: scale(1.18);
 }
 .lyrics-line.lyrics-past {
@@ -1870,12 +1890,12 @@ s::after {
 }
 @media (max-width: 768px) {
   #raps-lyrics-scroll {
-    padding: 4vh 8% 64vh;
-    mask-image: radial-gradient(ellipse 92% 30% at 50% 20%, black 5%, rgba(0,0,0,0.7) 32%, rgba(0,0,0,0.1) 58%, transparent 72%);
-    -webkit-mask-image: radial-gradient(ellipse 92% 30% at 50% 20%, black 5%, rgba(0,0,0,0.7) 32%, rgba(0,0,0,0.1) 58%, transparent 72%);
+    padding: 4vh 8% 82vh;
+    mask-image: radial-gradient(ellipse 92% 30% at 50% 20%, black 5%, rgba(0,0,0,0.7) 32%, rgba(0,0,0,0.12) 56%, rgba(0,0,0,0.08) 100%);
+    -webkit-mask-image: radial-gradient(ellipse 92% 30% at 50% 20%, black 5%, rgba(0,0,0,0.7) 32%, rgba(0,0,0,0.12) 56%, rgba(0,0,0,0.08) 100%);
   }
-  .lyrics-line { font-size: 1.3rem; }
-  .lyrics-line.lyrics-active { transform: scale(1.15); }
+  .lyrics-line { font-size: 1.65rem; line-height: 1.6; }
+  .lyrics-line.lyrics-active { transform: scale(1.08); }
   .lyrics-toggle-btn { font-size: 0.65rem; padding: 6px 16px; }
 }
 
@@ -4783,7 +4803,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
 
       <div id="raps-progress-outer">
-        <button class="ctrl-btn" id="raps-prev-btn">⟨⟨</button>
+        <button class="ctrl-btn" id="raps-prev-btn">‹</button>
         <div id="raps-progress-wrap">
           <div id="raps-progress-bar"><div id="raps-progress-fill"></div></div>
           <div id="raps-time-display">
@@ -4791,21 +4811,18 @@ document.addEventListener('DOMContentLoaded', function() {
             <span id="raps-time-total">0:00</span>
           </div>
         </div>
-        <button class="ctrl-btn" id="raps-next-btn">⟩⟩</button>
+        <button class="ctrl-btn" id="raps-next-btn">›</button>
       </div>
 
       <div id="raps-play-row">
         <button id="raps-play-btn">▶</button>
-        <div id="raps-lyrics-toggle">
-          <button class="lyrics-toggle-btn active" id="raps-btn-viz">Visualizer</button>
-          <button class="lyrics-toggle-btn" id="raps-btn-lyrics">Lyrics</button>
-        </div>
+        <button id="raps-keep-playing" title="Play while browsing">Play while browsing</button>
       </div>
 
       <div id="raps-bottom-row">
-        <svg id="raps-volume-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path class="vol-wave" d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+        <svg id="raps-volume-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
         <input type="range" id="raps-volume-slider" min="0" max="1" step="0.01" value="0.5" aria-label="Volume" />
-        <button id="raps-keep-playing" title="Play while browsing">Play while browsing</button>
+        <button id="raps-loop-btn" title="Loop">↻<span id="raps-loop-indicator"></span></button>
       </div>
     </div>
   </div>
@@ -9343,6 +9360,8 @@ requestAnimationFrame(draw);
   var rapsAudioCtx = null, rapsAnalyser = null, rapsDataArray = null, rapsGainNode = null;
   var rapsCurrentSource = null, rapsCurrentBuffer = null, rapsBufferCache = {};
   var rapsCurrentTrack = 0, rapsIsPlaying = false, rapsStartedAt = 0, rapsPausedAt = 0, rapsTrackDuration = 0;
+  var rapsLooping = false, rapsKeepPlaying = false;
+  var rapsThemeRgb = '200,170,120';
 
   function rapsInitAudioCtx() {
     if (rapsAudioCtx) return;
@@ -9383,7 +9402,14 @@ requestAnimationFrame(draw);
     rapsCurrentSource = rapsAudioCtx.createBufferSource();
     rapsCurrentSource.buffer = rapsCurrentBuffer;
     rapsCurrentSource.connect(rapsGainNode);
-    rapsCurrentSource.onended = function() { if (rapsIsPlaying && rapsGetCurrentTime() >= rapsTrackDuration - 0.1) rapsNextTrack(); };
+    rapsCurrentSource.onended = function() {
+      if (!rapsIsPlaying || rapsGetCurrentTime() < rapsTrackDuration - 0.1) return;
+      var mode = parseInt((document.getElementById('raps-loop-btn') || {dataset:{}}).dataset.mode || '1');
+      if (mode === 2) { rapsPausedAt = 0; rapsStartPlayback(0); }       // loop one
+      else if (mode === 1) { rapsNextTrack(); }                          // loop all — wraps at end
+      else { var isLast = rapsCurrentTrack >= rapsTracks.length - 1;    // off — stop at last
+        if (!isLast) rapsNextTrack(); else { rapsPausedAt = 0; rapsIsPlaying = false; var _pb = document.getElementById('raps-play-btn'); if(_pb){_pb.textContent='▶';_pb.classList.remove('playing');} rapsUpdateActiveRow(); } }
+    };
     rapsStartedAt = rapsAudioCtx.currentTime;
     rapsPausedAt = offset;
     rapsCurrentSource.start(0, offset);
@@ -9433,6 +9459,18 @@ requestAnimationFrame(draw);
     document.getElementById('raps-time-total').textContent = t.dur;
     rapsCycleBgFrame();
     rapsUpdateActiveRow();
+    // Per-album theme: gold / blue / magenta
+    var rgb = t.album.startsWith('Inertia') ? '200,170,120' :
+              t.album.startsWith("Men's Evil Manners") ? '110,150,205' :
+              '205,115,188';
+    rapsThemeRgb = rgb;
+    document.documentElement.style.setProperty('--song-rgb', rgb);
+    document.documentElement.style.setProperty('--lyrics-color', 'rgba(' + rgb + ',0.68)');
+    // Tile border cross-dissolves to theme color
+    document.getElementById('raps-now-playing').style.borderColor = 'rgba(' + rgb + ',0.22)';
+    // Volume icon — re-apply with updated theme
+    var volSlider = document.getElementById('raps-volume-slider');
+    if (volSlider) rapsUpdateVolIcon(parseFloat(volSlider.value));
   }
 
   async function rapsLoadAndPlay() {
@@ -9504,8 +9542,8 @@ requestAnimationFrame(draw);
   var rapsVolSlider = document.getElementById('raps-volume-slider');
   var rapsVolIcon = document.getElementById('raps-volume-icon');
   var rapsVolBefore = 0.5;
-  var rapsVolWave = rapsVolIcon.querySelector('.vol-wave');
-  function rapsUpdateVolIcon(v) { if (rapsVolWave) rapsVolWave.style.display = v > 0 ? '' : 'none'; rapsVolIcon.style.opacity = v > 0 ? '1' : '0.4'; }
+  function rapsUpdateVolIcon(v) { rapsVolIcon.style.color = v === 0 ? 'rgba(' + rapsThemeRgb + ',0.85)' : 'rgba(255,255,255,0.22)'; }
+  rapsUpdateVolIcon(0.5); // init gold state
   rapsVolSlider.addEventListener('input', function(e) { var v = parseFloat(e.target.value); if (rapsGainNode) rapsGainNode.gain.value = v; rapsUpdateVolIcon(v); });
   rapsVolIcon.addEventListener('click', function() {
     if (parseFloat(rapsVolSlider.value) > 0) {
@@ -9520,7 +9558,6 @@ requestAnimationFrame(draw);
   });
 
   // Keep playing toggle
-  var rapsKeepPlaying = false;
   var rapsKeepBtn = document.getElementById('raps-keep-playing');
   function rapsToggleKeep(e) {
     if (e) e.preventDefault();
@@ -9532,6 +9569,26 @@ requestAnimationFrame(draw);
     e.preventDefault();
     rapsToggleKeep();
   });
+
+  var rapsLoopBtn = document.getElementById('raps-loop-btn');
+  var rapsLoopIndicator = document.getElementById('raps-loop-indicator');
+  // loopMode: 0 = off, 1 = loop all, 2 = loop one
+  function rapsSetLoopMode(m) {
+    rapsLooping = (m === 2); // rapsLooping = single track repeat
+    rapsLoopBtn.classList.toggle('active', m > 0);
+    if (m === 0) { rapsLoopIndicator.textContent = ''; }
+    else if (m === 1) { rapsLoopIndicator.textContent = 'all'; }
+    else { rapsLoopIndicator.textContent = '1'; }
+    rapsLoopBtn.dataset.mode = m;
+  }
+  function rapsToggleLoop(e) {
+    if (e) e.preventDefault();
+    var cur = parseInt(rapsLoopBtn.dataset.mode || '0');
+    rapsSetLoopMode((cur + 1) % 3);
+  }
+  rapsSetLoopMode(0); // default: off
+  rapsLoopBtn.addEventListener('click', rapsToggleLoop);
+  rapsLoopBtn.addEventListener('touchend', function(e) { e.preventDefault(); rapsToggleLoop(); });
   document.getElementById('raps-progress-wrap').addEventListener('click', function(e) {
     if (!rapsCurrentBuffer) return;
     var rect = e.currentTarget.getBoundingClientRect();
@@ -9583,7 +9640,12 @@ requestAnimationFrame(draw);
   window._sections['songs'] = {
     activate: function() {
       _songsActive = true;
-      if (window._rapsVizAPI) { window._rapsVizAPI.resize(); window._rapsVizAPI.start(); }
+      var vc = document.getElementById('raps-viz-container');
+      if (vc) vc.style.opacity = '0.32';
+      (function tryStart(n) {
+        if (window._rapsVizAPI) { window._rapsVizAPI.resize(); window._rapsVizAPI.start(); }
+        else if (n > 0) requestAnimationFrame(function() { tryStart(n - 1); });
+      })(30);
     },
     deactivate: function() {
       _songsActive = false;
@@ -10546,10 +10608,7 @@ requestAnimationFrame(draw);
 
   var panel    = document.getElementById('raps-lyrics-panel');
   var scroll   = document.getElementById('raps-lyrics-scroll');
-  var btnViz   = document.getElementById('raps-btn-viz');
-  var btnLyrics= document.getElementById('raps-btn-lyrics');
   var vizContainer = document.getElementById('raps-viz-container');
-  var _lyricsMode = false;
   var _rafId = null;
   var _activeIdx = -1;
   var _timedLines = []; // only the { t, line } entries (no nulls), with their DOM el refs
@@ -10587,10 +10646,13 @@ requestAnimationFrame(draw);
     scroll.scrollTop = 0;
     _scrollCurrent = 0;
     _scrollTarget = 0;
+    // Reset reveal state for new track — viz goes back to full, lyrics hidden
+    scroll.classList.remove('revealed');
+    vizContainer.style.opacity = '1';
   }
 
   function syncLyrics() {
-    if (!_lyricsMode || !_timedLines.length) { _rafId = requestAnimationFrame(syncLyrics); return; }
+    if (!_timedLines.length) { _rafId = requestAnimationFrame(syncLyrics); return; }
     var ct = (window._rapsControl && window._rapsControl.getCurrentTime) ? window._rapsControl.getCurrentTime() : 0;
     // Find current line: largest t <= ct
     var cur = -1;
@@ -10598,6 +10660,11 @@ requestAnimationFrame(draw);
       if (_timedLines[i].t <= ct) cur = i; else break;
     }
     if (cur !== _activeIdx) {
+      // First lyric hit — reveal lyrics and dim visualizer
+      if (cur >= 0 && _activeIdx < 0) {
+        scroll.classList.add('revealed');
+        vizContainer.style.opacity = '0.32';
+      }
       _activeIdx = cur;
       _timedLines.forEach(function(item, i) {
         item.el.classList.toggle('lyrics-active', i === cur);
@@ -10617,38 +10684,31 @@ requestAnimationFrame(draw);
     _rafId = requestAnimationFrame(syncLyrics);
   }
 
-  function setMode(mode) {
-    _lyricsMode = (mode === 'lyrics');
-    if (_lyricsMode) {
-      panel.classList.add('active');
-      vizContainer.style.opacity = '0';
-      btnViz.classList.remove('active');
-      btnLyrics.classList.add('active');
-      var title = document.getElementById('raps-track-title');
-      if (title) renderLyrics(title.textContent.trim());
-      _scrollCurrent = 0; _scrollTarget = 0;
-      if (_rafId) cancelAnimationFrame(_rafId);
-      _rafId = requestAnimationFrame(syncLyrics);
-    } else {
-      panel.classList.remove('active');
-      vizContainer.style.opacity = '1';
-      btnViz.classList.add('active');
-      btnLyrics.classList.remove('active');
-      if (_rafId) { cancelAnimationFrame(_rafId); _rafId = null; }
-    }
+  function initCombinedMode() {
+    // Always on: lyrics over dimmed visualizer
+    panel.classList.add('active');
+    vizContainer.style.opacity = '1';
+    var title = document.getElementById('raps-track-title');
+    if (title) renderLyrics(title.textContent.trim());
+    _scrollCurrent = 0; _scrollTarget = 0;
+    if (_rafId) cancelAnimationFrame(_rafId);
+    _rafId = requestAnimationFrame(syncLyrics);
+    (function tryStart(n) {
+      if (window._rapsVizAPI) { window._rapsVizAPI.resize(); window._rapsVizAPI.start(); }
+      else if (n > 0) requestAnimationFrame(function() { tryStart(n - 1); });
+    })(30);
   }
-
-  btnViz.addEventListener('click', function() { setMode('viz'); });
-  btnLyrics.addEventListener('click', function() { setMode('lyrics'); });
 
   // Update lyrics when track changes
   var trackTitle = document.getElementById('raps-track-title');
   if (trackTitle) {
     var observer = new MutationObserver(function() {
-      if (_lyricsMode) { renderLyrics(trackTitle.textContent.trim()); _activeIdx = -1; }
+      renderLyrics(trackTitle.textContent.trim()); _activeIdx = -1;
     });
     observer.observe(trackTitle, { childList: true, characterData: true, subtree: true });
   }
+
+  initCombinedMode();
 })();
 
 // === INITIAL ACTIVATION (after all sections registered) ===
@@ -11037,7 +11097,11 @@ import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js'
     }
   };
 
-  // Don't auto-start — wait for section activation
+  // Auto-start if section was already activated before this API was ready
+  if (window._sections && window._sections['songs'] && window._sections['songs'].isActive()) {
+    window._rapsVizAPI.resize();
+    window._rapsVizAPI.start();
+  }
 })();
 </script>
 
