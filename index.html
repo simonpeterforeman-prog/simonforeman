@@ -4321,7 +4321,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <nav id="site-nav">
   <div class="nav-left"><a href="#" id="nav-home">Simon Foreman</a><a href="#site-footer" id="nav-contact">Why</a></div>
   <div id="nav-top-row"><span id="nav-top-label">Simon Foreman</span></div>
-  <div class="nav-center"><a data-section="artworks"><span class="nav-num">01</span> Form</a><a data-section="work"><span class="nav-num">02</span> Vision</a><a data-section="songs"><span class="nav-num">03</span> Soul</a><a data-section="family"><span class="nav-num">04</span> Blood</a><a data-section="home"><span class="nav-num">05</span> Ground</a></div>
+  <div class="nav-center"><a data-section="artworks"><span class="nav-num">01</span> Form</a><a data-section="songs"><span class="nav-num">02</span> Soul</a><a data-section="work"><span class="nav-num">03</span> Vision</a><a data-section="family"><span class="nav-num">04</span> Blood</a><a data-section="home"><span class="nav-num">05</span> Ground</a></div>
 </nav>
 <div id="subsection-nav"><a data-piece="p1">01</a><a data-piece="p7">02</a><a data-piece="p2">03</a><a data-piece="p9">04</a><a data-piece="p3">05</a><a data-piece="p5">06</a><a data-piece="p4">07</a><a data-piece="p6">08</a><a data-piece="p8">09</a><a data-piece="p10">10</a></div>
 
@@ -4702,8 +4702,72 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </section><!-- /sec-artworks -->
 
-<div id="title-work" class="section-title-card">
+<div id="title-songs" class="section-title-card">
   <span class="ghost-num">02</span>
+  <h2>10 Songs</h2>
+  <p>Select tracks from 2 full-length albums and an EP, recorded in Marin County, CA and NYC.</p>
+</div>
+
+<section id="sec-songs" class="site-section">
+<div id="songs-stage">
+  <div id="raps-bg-frames">
+    <div class="bg-frame bg-pyunghwa active" id="raps-bg0"></div>
+    <div class="bg-frame bg-brassknuckles" id="raps-bg1"></div>
+    <div class="bg-frame bg-placeholder" id="raps-bg2"></div>
+  </div>
+  <div id="raps-overlay"></div>
+  <div id="raps-viz-container"></div>
+  <div id="raps-lyrics-panel">
+    <div id="raps-lyrics-scroll"></div>
+  </div>
+
+  <div id="raps-app">
+    <div id="raps-now-playing">
+      <div id="raps-track-info-row">
+        <div id="raps-album-art">
+          <div class="art-placeholder art-inertia" id="raps-art-display">
+            <span>Inertia</span>
+          </div>
+        </div>
+        <div id="raps-track-meta">
+          <div id="raps-track-title">This Life</div>
+          <div id="raps-track-artist">Pyunghwa</div>
+          <div id="raps-track-album">Inertia</div>
+        </div>
+      </div>
+
+      <div id="raps-progress-outer">
+        <button class="ctrl-btn" id="raps-prev-btn">‹</button>
+        <div id="raps-progress-wrap">
+          <div id="raps-progress-bar"><div id="raps-progress-fill"></div></div>
+          <div id="raps-time-display">
+            <span id="raps-time-current">0:00</span>
+            <span id="raps-time-total">0:00</span>
+          </div>
+        </div>
+        <button class="ctrl-btn" id="raps-next-btn">›</button>
+      </div>
+
+      <div id="raps-play-row">
+        <button id="raps-play-btn">▶</button>
+        <button id="raps-keep-playing" title="Play while browsing">Play while browsing</button>
+      </div>
+
+      <div id="raps-bottom-row">
+        <svg id="raps-volume-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+        <input type="range" id="raps-volume-slider" min="0" max="1" step="0.01" value="0.5" aria-label="Volume" />
+        <button id="raps-loop-btn" title="Loop">↻<span id="raps-loop-indicator"></span></button>
+      </div>
+    </div>
+  </div>
+
+  <div id="raps-track-list"></div>
+</div><!-- /songs-stage -->
+
+</section>
+
+<div id="title-work" class="section-title-card">
+  <span class="ghost-num">03</span>
   <h2>10 MCD Case Studies</h2>
   <p>What creative leadership looks like at MCD Partners. Recent work, 2024–present.</p>
 </div>
@@ -4765,70 +4829,6 @@ document.addEventListener('DOMContentLoaded', function() {
   </a>
 
 </div><!-- /work-stage -->
-
-</section>
-
-<div id="title-songs" class="section-title-card">
-  <span class="ghost-num">03</span>
-  <h2>10 Songs</h2>
-  <p>Select tracks from 2 full-length albums and an EP, recorded in Marin County, CA and NYC.</p>
-</div>
-
-<section id="sec-songs" class="site-section">
-<div id="songs-stage">
-  <div id="raps-bg-frames">
-    <div class="bg-frame bg-pyunghwa active" id="raps-bg0"></div>
-    <div class="bg-frame bg-brassknuckles" id="raps-bg1"></div>
-    <div class="bg-frame bg-placeholder" id="raps-bg2"></div>
-  </div>
-  <div id="raps-overlay"></div>
-  <div id="raps-viz-container"></div>
-  <div id="raps-lyrics-panel">
-    <div id="raps-lyrics-scroll"></div>
-  </div>
-
-  <div id="raps-app">
-    <div id="raps-now-playing">
-      <div id="raps-track-info-row">
-        <div id="raps-album-art">
-          <div class="art-placeholder art-inertia" id="raps-art-display">
-            <span>Inertia</span>
-          </div>
-        </div>
-        <div id="raps-track-meta">
-          <div id="raps-track-title">This Life</div>
-          <div id="raps-track-artist">Pyunghwa</div>
-          <div id="raps-track-album">Inertia</div>
-        </div>
-      </div>
-
-      <div id="raps-progress-outer">
-        <button class="ctrl-btn" id="raps-prev-btn">‹</button>
-        <div id="raps-progress-wrap">
-          <div id="raps-progress-bar"><div id="raps-progress-fill"></div></div>
-          <div id="raps-time-display">
-            <span id="raps-time-current">0:00</span>
-            <span id="raps-time-total">0:00</span>
-          </div>
-        </div>
-        <button class="ctrl-btn" id="raps-next-btn">›</button>
-      </div>
-
-      <div id="raps-play-row">
-        <button id="raps-play-btn">▶</button>
-        <button id="raps-keep-playing" title="Play while browsing">Play while browsing</button>
-      </div>
-
-      <div id="raps-bottom-row">
-        <svg id="raps-volume-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
-        <input type="range" id="raps-volume-slider" min="0" max="1" step="0.01" value="0.5" aria-label="Volume" />
-        <button id="raps-loop-btn" title="Loop">↻<span id="raps-loop-indicator"></span></button>
-      </div>
-    </div>
-  </div>
-
-  <div id="raps-track-list"></div>
-</div><!-- /songs-stage -->
 
 </section>
 
@@ -4933,7 +4933,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== SITE CONTROLLER =====
 
-var _sectionOrder = ['artworks', 'work', 'songs', 'family', 'home'];
+var _sectionOrder = ['artworks', 'songs', 'work', 'family', 'home'];
 var _sectionMeta = {
   artworks: { title: '10 Artworks', theme: 'dark' },
   songs:    { title: '10 Songs', theme: 'dark' },
@@ -5562,7 +5562,7 @@ document.getElementById('nav-contact').addEventListener('click', function(e) {
   var _atBottom = false;
   var skipLabel = document.getElementById('skip-label');
   var _sectionLabels = { artworks: 'Form', songs: 'Soul', work: 'Vision', family: 'Blood', home: 'Ground' };
-  var _sectionNums = { artworks: '01', work: '02', songs: '03', family: '04', home: '05' };
+  var _sectionNums = { artworks: '01', songs: '02', work: '03', family: '04', home: '05' };
 
   // Mobile pill elements
   var mobilePill = document.getElementById('mobile-pill');
@@ -11298,7 +11298,7 @@ document.querySelectorAll('.piece-desc-link').forEach(function(btn) {
 
   document.getElementById('gallery-btn-skip').addEventListener('click', function() {
     closeModal();
-    var nextSection = document.getElementById('title-work');
+    var nextSection = document.getElementById('title-songs');
     if (nextSection) nextSection.scrollIntoView({ behavior: 'smooth' });
   });
 
