@@ -10653,7 +10653,10 @@ requestAnimationFrame(draw);
 
   function syncLyrics() {
     if (!_timedLines.length) { _rafId = requestAnimationFrame(syncLyrics); return; }
+    var isPlaying = window._rapsControl && window._rapsControl.isPlaying();
     var ct = (window._rapsControl && window._rapsControl.getCurrentTime) ? window._rapsControl.getCurrentTime() : 0;
+    // Don't show lyrics until song has actually started playing
+    if (!isPlaying && ct === 0) { _rafId = requestAnimationFrame(syncLyrics); return; }
     // Find current line: largest t <= ct
     var cur = -1;
     for (var i = 0; i < _timedLines.length; i++) {
