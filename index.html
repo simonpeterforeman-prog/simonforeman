@@ -1554,7 +1554,7 @@ s::after {
   border-radius: 6px;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.1);
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.45);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -9499,14 +9499,14 @@ requestAnimationFrame(draw);
     if (rapsAudioCtx.state === 'suspended') rapsAudioCtx.resume();
     if (!rapsCurrentBuffer) { rapsLoadAndPlay(); return; }
     rapsStartPlayback(rapsPausedAt);
-    rapsIsPlaying = true; var _pb = document.getElementById('raps-play-btn'); _pb.textContent = '❚❚'; _pb.classList.add('playing'); rapsUpdateActiveRow();
+    rapsIsPlaying = true; var _pb = document.getElementById('raps-play-btn'); _pb.textContent = '❚❚'; _pb.classList.add('playing'); rapsUpdateActiveRow(); if (rapsKeepPlaying) { var _kb3 = document.getElementById('raps-keep-playing'); if (_kb3) _kb3.classList.add('active'); }
   }
 
   function rapsPauseTrack() {
     if (!rapsIsPlaying) return;
     rapsPausedAt = rapsGetCurrentTime();
     if (rapsCurrentSource) { rapsCurrentSource.onended = null; rapsCurrentSource.stop(); rapsCurrentSource.disconnect(); rapsCurrentSource = null; }
-    rapsIsPlaying = false; var _pb = document.getElementById('raps-play-btn'); _pb.textContent = '▶'; _pb.classList.remove('playing'); rapsUpdateActiveRow();
+    rapsIsPlaying = false; var _pb = document.getElementById('raps-play-btn'); _pb.textContent = '▶'; _pb.classList.remove('playing'); var _kb2 = document.getElementById('raps-keep-playing'); if (_kb2) _kb2.classList.remove('active'); rapsUpdateActiveRow();
   }
 
   function rapsSeekTo(pct) {
