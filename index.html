@@ -1839,7 +1839,8 @@ s::after {
 #raps-lyrics-scroll {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  overflow-y: auto;
+  overflow-y: hidden;
+  pointer-events: none;
   padding: 20vh 18% 78vh;
   box-sizing: border-box;
   text-align: center;
@@ -1855,7 +1856,6 @@ s::after {
   opacity: 1;
   transform: translateY(0);
 }
-#raps-lyrics-scroll::-webkit-scrollbar { display: none; }
 .lyrics-line {
   font-family: 'Nunito', sans-serif;
   font-weight: 800;
