@@ -9487,7 +9487,7 @@ requestAnimationFrame(draw);
       var dm = Math.floor(rapsTrackDuration / 60), ds = Math.floor(rapsTrackDuration % 60);
       document.getElementById('raps-time-total').textContent = dm + ':' + ds.toString().padStart(2, '0');
       rapsPausedAt = 0; rapsStartPlayback(0);
-      rapsIsPlaying = true; var _pb = document.getElementById('raps-play-btn'); _pb.textContent = '❚❚'; _pb.classList.add('playing'); rapsUpdateActiveRow();
+      rapsIsPlaying = true; var _pb = document.getElementById('raps-play-btn'); _pb.textContent = '❚❚'; _pb.classList.add('playing'); rapsUpdateActiveRow(); if (!rapsKeepPlaying) { rapsKeepPlaying = true; var _kb = document.getElementById('raps-keep-playing'); if (_kb) _kb.classList.add('active'); }
     } catch(e) { }
   }
 
