@@ -9434,7 +9434,7 @@ requestAnimationFrame(draw);
       '<div class="track-info"><div class="track-info-title">' + t.title + '</div><div class="track-info-album">' + t.album + '</div></div>' +
       '<div class="track-dur">' + t.dur + '</div>' +
       (t.file ? '<a class="track-dl" href="' + t.file + '" download title="Download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span class="dl-label">Download</span></a>' : '');
-    row.addEventListener('click', function(e) { if (e.target.closest('.track-dl')) return; if (!t.file) return; if (rapsIsPlaying) rapsPauseTrack(); rapsCurrentTrack = i; rapsInitAudioCtx(); if (rapsAudioCtx.state === 'suspended') { rapsAudioCtx.resume(); } rapsLoadAndPlay(); });
+    row.addEventListener('click', function(e) { if (e.target.closest('.track-dl')) return; if (!t.file) return; if (rapsIsPlaying) rapsPauseTrack(); rapsPausedAt = 0; rapsCurrentTrack = i; rapsInitAudioCtx(); if (rapsAudioCtx.state === 'suspended') { rapsAudioCtx.resume(); } rapsLoadAndPlay(); });
     rapsTrackListEl.appendChild(row);
   });
 
@@ -9518,15 +9518,15 @@ requestAnimationFrame(draw);
 
   function rapsNextTrack() {
     var n = rapsCurrentTrack + 1; if (n >= rapsTracks.length) n = 0; if (!rapsTracks[n].file) n++; if (n >= rapsTracks.length) n = 0;
-    var wp = rapsIsPlaying; if (rapsIsPlaying) rapsPauseTrack(); rapsCurrentTrack = n;
-    if (wp) { rapsInitAudioCtx(); if (rapsAudioCtx.state === 'suspended') rapsAudioCtx.resume(); rapsLoadAndPlay(); } else { rapsUpdateUI(); rapsCurrentBuffer = null; rapsPausedAt = 0; }
+    var wp = rapsIsPlaying; if (rapsIsPlaying) rapsPauseTrack(); rapsPausedAt = 0; rapsCurrentTrack = n;
+    if (wp) { rapsInitAudioCtx(); if (rapsAudioCtx.state === 'suspended') rapsAudioCtx.resume(); rapsLoadAndPlay(); } else { rapsUpdateUI(); rapsCurrentBuffer = null; }
   }
 
   function rapsPrevTrack() {
     if (rapsGetCurrentTime() > 3) { rapsSeekTo(0); return; }
     var p = rapsCurrentTrack - 1; if (p < 0) p = rapsTracks.length - 1; if (!rapsTracks[p].file) p--; if (p < 0) p = rapsTracks.length - 1;
-    var wp = rapsIsPlaying; if (rapsIsPlaying) rapsPauseTrack(); rapsCurrentTrack = p;
-    if (wp) { rapsInitAudioCtx(); if (rapsAudioCtx.state === 'suspended') rapsAudioCtx.resume(); rapsLoadAndPlay(); } else { rapsUpdateUI(); rapsCurrentBuffer = null; rapsPausedAt = 0; }
+    var wp = rapsIsPlaying; if (rapsIsPlaying) rapsPauseTrack(); rapsPausedAt = 0; rapsCurrentTrack = p;
+    if (wp) { rapsInitAudioCtx(); if (rapsAudioCtx.state === 'suspended') rapsAudioCtx.resume(); rapsLoadAndPlay(); } else { rapsUpdateUI(); rapsCurrentBuffer = null; }
   }
 
   // Button handlers — touchend for iOS Safari audio unlock (fires before click)
