@@ -236,6 +236,7 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scrollbar-width: none; background: #000; }
+@media (min-width: 769px) { html { font-size: 17px; } }
 ::-webkit-scrollbar { width: 0; }
 body {
   background: #000;
@@ -388,7 +389,7 @@ body {
 }
 #listen-float:hover { border-color: rgba(200,170,120,0.5); background: rgba(200,170,120,0.04); }
 #listen-float .listen-icon {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: rgba(200,170,120,0.7);
   line-height: 1;
   position: relative;
@@ -1032,7 +1033,7 @@ body {
 }
 .gallery-bonus-heading {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-style: italic;
   color: rgba(200,170,120,0.5);
   margin-bottom: 12px;
@@ -1745,7 +1746,7 @@ s::after {
 #raps-keep-playing {
   font-family: 'Nunito', sans-serif;
   font-weight: 600;
-  font-size: 0.52rem;
+  font-size: 0.55rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.35);
@@ -1771,7 +1772,7 @@ s::after {
   color: rgba(255,255,255,0.25);
   cursor: pointer;
   transition: color 0.7s ease;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1806,10 +1807,10 @@ s::after {
   #raps-now-playing { width: 92vw; max-width: 92vw; padding: 18px 18px 16px; }
   #raps-album-art { width: 52px; height: 52px; }
   #raps-track-title { font-size: 1rem; }
-  #raps-track-artist, #raps-track-album { font-size: 0.65rem; }
-  #raps-time-display { font-size: 0.65rem; }
+  #raps-track-artist, #raps-track-album { font-size: 0.7rem; }
+  #raps-time-display { font-size: 0.7rem; }
   #raps-play-btn { font-size: 1.1rem; width: 100%; height: 36px; }
-  #raps-keep-playing { font-size: 0.58rem; height: 36px; }
+  #raps-keep-playing { font-size: 0.55rem; height: 36px; }
   #sec-songs .ctrl-btn { font-size: 1.2rem; }
   #raps-progress-outer { margin-top: 10px; gap: 8px; }
   #raps-play-row { margin-top: 10px; gap: 8px; }
@@ -1820,7 +1821,7 @@ s::after {
   #raps-volume-slider::-webkit-slider-thumb { width: 14px; height: 14px; }
   #raps-track-list { padding: 10px 0 14px; max-height: 26vh; }
   #sec-songs .track-row { padding: 8px 16px; gap: 10px; }
-  .lyrics-toggle-btn { font-size: 0.58rem; padding: 6px 8px; }
+  .lyrics-toggle-btn { font-size: 0.55rem; padding: 6px 8px; }
   #sec-songs .track-num { font-size: 0.85rem; width: 20px; }
   #sec-songs .track-thumb { width: 44px; height: 44px; }
   #sec-songs .track-info-title { font-size: 1rem; }
@@ -1884,7 +1885,7 @@ s::after {
 .lyrics-break { display: block; height: 0.7em; }
 #raps-lyrics-none {
   font-family: 'Nunito', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: rgba(255,255,255,0.25);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1897,7 +1898,7 @@ s::after {
   }
   .lyrics-line { font-size: 1.65rem; line-height: 1.6; }
   .lyrics-line.lyrics-active { transform: scale(1.08); }
-  .lyrics-toggle-btn { font-size: 0.65rem; padding: 6px 16px; }
+  .lyrics-toggle-btn { font-size: 0.7rem; padding: 6px 16px; }
 }
 
 /* === FAMILY PHOTOS SECTION (coverflow) === */
@@ -2629,7 +2630,7 @@ s::after {
 .footer-contact-link {
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
-  font-size: 0.65rem;
+  font-size: 0.7rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: rgba(200,170,120,0.6);
@@ -2809,7 +2810,7 @@ s::after {
   color: rgba(255,255,255,0.7);
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   letter-spacing: 0.04em;
   outline: none;
   transition: border-color 0.3s, background 0.3s;
@@ -2856,7 +2857,7 @@ s::after {
   color: rgba(255,255,255,0.7);
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   letter-spacing: 0.04em;
   outline: none;
   transition: border-color 0.3s, background 0.3s;
@@ -2949,7 +2950,7 @@ s::after {
   color: rgba(255,255,255,0.7);
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   letter-spacing: 0.04em;
   outline: none;
   transition: border-color 0.3s, background 0.3s;
@@ -2967,7 +2968,7 @@ s::after {
   color: rgba(255,255,255,0.7);
   font-family: 'Nunito', sans-serif;
   font-weight: 300;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   letter-spacing: 0.04em;
   outline: none;
   resize: vertical;
