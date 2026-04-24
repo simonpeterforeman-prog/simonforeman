@@ -408,7 +408,7 @@ body {
 #site-nav #nav-home {
   font-family: 'Rubik', sans-serif;
   font-weight: 700;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.9);
@@ -894,7 +894,7 @@ body {
   line-height: 16px;
   text-align: center;
   border: 1px solid rgba(170,135,80,0.5);
-  border-radius: 2px;
+  border-radius: 0;
   font-size: 0.7rem;
   margin-right: 6px;
   vertical-align: middle;
@@ -1543,7 +1543,7 @@ s::after {
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255,255,255,0.13);
-  border-radius: 14px;
+  border-radius: 0;
   box-shadow: 0 0 80px 55px rgba(0,0,0,0.45);
   padding: 22px 22px 20px;
   cursor: auto;
@@ -1560,7 +1560,7 @@ s::after {
 #raps-album-art {
   width: 50px;
   height: 50px;
-  border-radius: 6px;
+  border-radius: 0;
   overflow: hidden;
   flex-shrink: 0;
   box-shadow: 0 4px 12px rgba(0,0,0,0.4);
@@ -1691,7 +1691,7 @@ s::after {
 #sec-songs .ctrl-btn:hover { color: rgba(255,255,255,0.90); }
 
 #raps-play-btn {
-  border-radius: 6px;
+  border-radius: 0;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.1);
   color: rgba(255,255,255,0.73);
@@ -1891,7 +1891,7 @@ s::after {
   color: rgba(255,255,255,0.65);
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 5px;
+  border-radius: 0;
   padding: 6px 14px;
   cursor: pointer;
   transition: color 0.7s ease, background 0.7s ease, border-color 0.7s ease;
@@ -2311,7 +2311,7 @@ s::after {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(200,170,120,0.1);
-  border-radius: 28px;
+  border-radius: 0;
   padding: 0 14px;
   height: 48px;
   display: flex;
@@ -2506,7 +2506,7 @@ s::after {
     bottom: 8px;
     height: 40px;
     padding: 0 12px;
-    border-radius: 24px;
+    border-radius: 0;
   }
   #home-bottom-bar {
     flex-wrap: wrap;
@@ -2701,17 +2701,21 @@ s::after {
   height: 135px;
   width: auto;
   object-fit: cover;
-  border-radius: 4px;
-  opacity: 0.7;
-  filter: grayscale(0.3);
-  transition: opacity 0.4s, filter 0.4s;
+  border-radius: 0;
+  opacity: 1;
+  filter: grayscale(0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
 }
 .origin-row-desktop-2 img {
   height: 150px;
 }
 .origin-row img:hover {
-  opacity: 0.95;
-  filter: grayscale(0);
+  transform: scale(1.12);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  z-index: 2;
 }
 .footer-origin-text {
   font-family: 'Rubik', sans-serif;
@@ -3104,10 +3108,12 @@ s::after {
   gap: 13px;
 }
 .work-inquiry-input {
+  -webkit-appearance: none;
+  appearance: none;
   padding: 10px 16px;
   background: transparent;
   border: 1px solid rgba(255,255,255,0.75);
-  border-radius: 24px;
+  border-radius: 0;
   color: rgba(255,255,255,0.85);
   font-family: 'Rubik', sans-serif;
   font-weight: 400;
@@ -3123,10 +3129,12 @@ s::after {
   background: rgba(255,255,255,0.04);
 }
 .work-inquiry-textarea {
+  -webkit-appearance: none;
+  appearance: none;
   padding: 12px 16px;
   background: transparent;
   border: 1px solid rgba(255,255,255,0.75);
-  border-radius: 16px;
+  border-radius: 0;
   color: rgba(255,255,255,0.85);
   font-family: 'Rubik', sans-serif;
   font-weight: 400;
@@ -4541,7 +4549,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="section-title-card">
   <span class="ghost-num">01</span>
   <h2>10 Artworks</h2>
-  <p>Selected work from 2003 on. Scroll the collection, or <a id="view-all-btn" style="color: rgba(0,0,0,0.65); cursor: pointer;">see all 10</a> at once.</p>
+  <p>Selected work from 2003 on. Scroll the collection, or <a id="view-all-btn" style="color: rgba(0,0,0,0.65); cursor: pointer; text-decoration: underline;">see all 10</a> at once.</p>
 </div>
 
 
@@ -5052,7 +5060,7 @@ document.addEventListener('DOMContentLoaded', function() {
         <img src="contact/kid6.jpg" alt="" />
       </div>
     </div>
-    <p class="footer-origin-text">This isn't a legacy. You can't write that yourself. It's a record. Snapshots from a kaleidoscope. Ten facets from five lenses of a life lived and still living. <a id="vibecoded-link" class="vibecoded-link">New tools</a> make it easy for prospective clients, collaborators, and friends to get a little closer to me.</p>
+    <p class="footer-origin-text">I wanted to create a record. Snapshots from a kaleidoscope — ten facets from five lenses of a life lived and still living. <a id="vibecoded-link" class="vibecoded-link">New tools</a> made it possible for prospective clients, collaborators, and friends to get a little closer to me.</p>
     <p class="footer-origin-text footer-origin-text-left">I am an artist and a creative leader. The longer I've been both, the more I believe the same thing about everyone who makes anything: we're all <s>broken</s>. Not broken as in defeated. Broken as in open, and humbled enough to believe broken things can be fixed. This gift, like all good gifts, comes from the Maker of makers.</p>
   </div>
 
