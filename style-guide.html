@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" style="background:#000;">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Style Guide — Simon Foreman</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=VT323&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 17px; }
+body {
+  background: #000;
+  color: rgba(255,255,255,0.85);
+  font-family: 'Rubik', sans-serif;
+  font-weight: 400;
+  padding: 60px 48px 120px;
+  max-width: 960px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ── GUIDE CHROME ── */
+.sg-page-title {
+  font-family: 'VT323', monospace;
+  font-size: 3rem;
+  color: rgba(200,170,120,0.9);
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+.sg-page-sub {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 72px;
+}
+.sg-section { margin-bottom: 80px; }
+.sg-section-label {
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(200,170,120,0.6);
+  border-bottom: 1px solid rgba(200,170,120,0.15);
+  padding-bottom: 10px;
+  margin-bottom: 36px;
+}
+.sg-row {
+  display: flex;
+  align-items: baseline;
+  gap: 32px;
+  margin-bottom: 28px;
+}
+.sg-meta {
+  width: 200px;
+  flex-shrink: 0;
+  font-size: 0.55rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.1em;
+  line-height: 1.8;
+}
+.sg-meta strong {
+  display: block;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 2px;
+}
+.sg-sample { flex: 1; }
+
+/* ── COLOR SWATCHES ── */
+.sg-swatches { display: flex; flex-wrap: wrap; gap: 16px; }
+.sg-swatch { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+.sg-swatch-block {
+  width: 80px; height: 48px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+.sg-swatch-label {
+  font-size: 0.5rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.08em;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* ── BUTTON DEMO ── */
+.sg-buttons { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.sg-btn {
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.55);
+  background: transparent;
+  color: rgba(255,255,255,0.88);
+  font-family: 'VT323', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 10px 28px;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 rgba(255,255,255,0.22);
+  transition: transform 0.08s, box-shadow 0.08s, background 0.08s, color 0.08s;
+}
+.sg-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.92);
+  color: rgba(0,0,0,0.85);
+}
+.sg-btn:active { transform: translate(4px, 4px); box-shadow: none; }
+
+/* ── FORM DEMO ── */
+.sg-form { display: flex; flex-direction: column; gap: 12px; max-width: 480px; }
+.sg-input {
+  padding: 10px 16px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.75);
+  border-radius: 24px;
+  color: rgba(255,255,255,0.88);
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+.sg-input:focus { border-color: rgba(255,255,255,1); }
+.sg-input::placeholder { color: rgba(255,255,255,0.25); }
+.sg-textarea {
+  padding: 12px 16px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.75);
+  border-radius: 16px;
+  color: rgba(255,255,255,0.88);
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.85rem;
+  outline: none;
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color 0.3s;
+}
+.sg-textarea:focus { border-color: rgba(255,255,255,1); }
+.sg-textarea::placeholder { color: rgba(255,255,255,0.25); }
+
+/* ── TYPE SCALE TABLE ── */
+.sg-table { width: 100%; border-collapse: collapse; font-size: 0.7rem; color: rgba(255,255,255,0.7); }
+.sg-table th {
+  text-align: left; padding: 8px 12px 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.35); font-size: 0.55rem;
+  letter-spacing: 0.15em; text-transform: uppercase; font-weight: 400;
+}
+.sg-table td { padding: 10px 12px 10px 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+.sg-table td:first-child { font-family: 'Rubik', monospace; color: rgba(200,170,120,0.8); }
+</style>
+</head>
+<body>
+
+<div class="sg-page-title">Style Guide</div>
+<p class="sg-page-sub">Simonforeman.com — April 2026</p>
+
+<!-- ══ 01 FONTS ══════════════════════════════════════════ -->
+<div class="sg-section">
+  <div class="sg-section-label">01 — Fonts</div>
+
+  <div class="sg-row">
+    <div class="sg-meta">
+      <strong>VT323</strong>
+      Display / Heading<br>monospace<br>weight: 400 only
+    </div>
+    <div class="sg-sample" style="font-family:'VT323',monospace; font-size:2.4rem; color:rgba(200,170,120,0.9); letter-spacing:0.06em; line-height:1.2;">
+      ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+      abcdefghijklmnopqrstuvwxyz<br>
+      0123456789
+    </div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-meta">
+      <strong>Rubik</strong>
+      Body / UI<br>sans-serif<br>weights: 300 400 500 600 700
+    </div>
+    <div class="sg-sample">
+      <div style="font-family:'Rubik',sans-serif; font-weight:300; margin-bottom:4px;">Light 300 — The working testament of a broken artist.</div>
+      <div style="font-family:'Rubik',sans-serif; font-weight:400; margin-bottom:4px;">Regular 400 — The working testament of a broken artist.</div>
+      <div style="font-family:'Rubik',sans-serif; font-weight:500; margin-bottom:4px;">Medium 500 — The working testament of a broken artist.</div>
+      <div style="font-family:'Rubik',sans-serif; font-weight:700;">Bold 700 — The working testament of a broken artist.</div>
+    </div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-meta">
+      <strong>Barlow Condensed</strong>
+      P3 stacked labels<br>weight: 600
+    </div>
+    <div class="sg-sample" style="font-family:'Barlow Condensed',sans-serif; font-weight:600; font-size:1.4rem; letter-spacing:0.12em; text-transform:uppercase; color:rgba(255,255,255,0.85);">
+      Barlow Condensed 600<br>Used in piece 3 stacked text overlay
+    </div>
+  </div>
+</div>
+
+<!-- ══ 02 TYPE SCALE ════════════════════════════════════ -->
+<div class="sg-section">
+  <div class="sg-section-label">02 — Type Scale</div>
+
+  <div class="sg-row">
+    <div class="sg-meta"><strong>4rem</strong>Hero h1 · VT323<br>Gold 92%</div>
+    <div class="sg-sample" style="font-family:'VT323',monospace; font-size:4rem; color:rgba(200,170,120,0.92); letter-spacing:0.08em; text-transform:uppercase; line-height:1;">SIMON FOREMAN</div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-meta"><strong>2.8rem</strong>Section h2 / Piece title · VT323<br>Dark on white</div>
+    <div class="sg-sample">
+      <div style="background:#fff; border-radius:4px; padding:24px 32px; display:inline-block;">
+        <div style="font-family:'VT323',monospace; font-size:2.8rem; color:rgba(0,0,0,0.85); letter-spacing:0.04em; line-height:1.2;">10 Artworks</div>
+      </div>
+      <div style="font-family:'VT323',monospace; font-size:2.8rem; color:rgba(200,170,120,0.88); letter-spacing:0.04em; line-height:1.2; margin-top:12px;">Ethical Decalogue</div>
+    </div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-meta"><strong>2.6rem</strong>Footer origin title · VT323<br>Gold 88%</div>
+    <div class="sg-sample" style="font-family:'VT323',monospace; font-size:2.6rem; color:rgba(200,170,120,0.88); letter-spacing:0.04em;">Why...</div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-meta"><strong>2.2rem</strong>Footer name · VT323<br>Gold italic</div>
+    <div class="sg-sample" style="font-family:'VT323',monospace; font-size:2.2rem; color:rgba(200,170,120,0.88); font-style:italic;">Simon Foreman</div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-meta"><strong>1.8rem</strong>Lyrics display · Rubik 800</div>
+    <div class="sg-sample" style="font-family:'Rubik',sans-serif; font-size:1.8rem; font-weight:800; color:rgba(255,255,255,0.85); line-height:1.75;">Colors of war<br>ring through the sky</div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-meta"><strong>1.6rem</strong>Hero poem / stubs · VT323<br>White 88%</div>
+    <div class="sg-sample" style="font-family:'VT323',monospace; font-size:1.6rem; color:rgba(255,255,255,0.88); letter-spacing:0.04em; line-height:1.4;">
+      The working testament<br>of a broken artist.
+    </div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-meta"><strong>1.3rem</strong>Nav: SIMON FOREMAN · VT323<br>Gold 88%</div>
+    <div class="sg-sample" style="font-family:'VT323',monospace; font-size:1.3rem; color:rgba(200,170,120,0.88); letter-spacing:0.06em; text-transform:uppercase;">SIMON FOREMAN</div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-meta"><strong>1.1rem</strong>Body / subhead · Rubik 400<br>White 82%</div>
+    <div class="sg-sample" style="font-size:1.1rem; color:rgba(255,255,255,0.82); line-height:1.8;">Bringing a passion for making things to every MCD client, leading creative teams and growing partnerships that last.</div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-meta"><strong>0.85rem</strong>Descriptions / buttons · Rubik / VT323<br>White 80%</div>
+    <div class="sg-sample" style="font-size:0.85rem; color:rgba(255,255,255,0.80); letter-spacing:0.04em; line-height:1.6;">Selected work from 2003 on. Scroll the collection, or see all 10 at once.</div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-meta"><strong>0.7rem</strong>Captions / nav links · Rubik 400<br>White 70%</div>
+    <div class="sg-sample" style="font-size:0.7rem; color:rgba(255,255,255,0.70); letter-spacing:0.15em; text-transform:uppercase; line-height:1.8;">
+      <span style="font-family:'VT323',monospace;">Form &nbsp;·&nbsp; Soul &nbsp;·&nbsp; Vision &nbsp;·&nbsp; Blood &nbsp;·&nbsp; Ground</span>
+    </div>
+  </div>
+
+  <div class="sg-row">
+    <div class="sg-meta"><strong>0.55rem</strong>Micro labels · Rubik 400<br>White 55%</div>
+    <div class="sg-sample" style="font-size:0.55rem; color:rgba(255,255,255,0.55); letter-spacing:0.2em; text-transform:uppercase;">Pyunghwa &nbsp;·&nbsp; Inertia &nbsp;·&nbsp; 4:22</div>
+  </div>
+</div>
+
+<!-- ══ 03 COLORS ════════════════════════════════════════ -->
+<div class="sg-section">
+  <div class="sg-section-label">03 — Colors</div>
+  <div class="sg-swatches">
+    <div class="sg-swatch">
+      <div class="sg-swatch-block" style="background:rgba(200,170,120,0.92);"></div>
+      <div class="sg-swatch-label">Gold 92%<br>Display</div>
+    </div>
+    <div class="sg-swatch">
+      <div class="sg-swatch-block" style="background:rgba(200,170,120,0.88);"></div>
+      <div class="sg-swatch-label">Gold 88%<br>Headings</div>
+    </div>
+    <div class="sg-swatch">
+      <div class="sg-swatch-block" style="background:rgba(200,170,120,0.70);"></div>
+      <div class="sg-swatch-label">Gold 70%<br>Nav links</div>
+    </div>
+    <div class="sg-swatch">
+      <div class="sg-swatch-block" style="background:rgba(200,170,120,0.15);"></div>
+      <div class="sg-swatch-label">Gold 15%<br>Dividers</div>
+    </div>
+    <div class="sg-swatch">
+      <div class="sg-swatch-block" style="background:rgba(255,255,255,0.88);"></div>
+      <div class="sg-swatch-label">White 88%<br>Poem / primary</div>
+    </div>
+    <div class="sg-swatch">
+      <div class="sg-swatch-block" style="background:rgba(255,255,255,0.82);"></div>
+      <div class="sg-swatch-label">White 82%<br>Body</div>
+    </div>
+    <div class="sg-swatch">
+      <div class="sg-swatch-block" style="background:rgba(255,255,255,0.70);"></div>
+      <div class="sg-swatch-label">White 70%<br>Captions</div>
+    </div>
+    <div class="sg-swatch">
+      <div class="sg-swatch-block" style="background:rgba(255,255,255,0.55);"></div>
+      <div class="sg-swatch-label">White 55%<br>Ghost / micro</div>
+    </div>
+    <div class="sg-swatch">
+      <div class="sg-swatch-block" style="background:rgba(255,255,255,0.25);"></div>
+      <div class="sg-swatch-label">White 25%<br>Placeholders</div>
+    </div>
+    <div class="sg-swatch">
+      <div class="sg-swatch-block" style="background:#fff;"></div>
+      <div class="sg-swatch-label">White<br>Section card bg</div>
+    </div>
+    <div class="sg-swatch">
+      <div class="sg-swatch-block" style="background:rgba(0,0,0,0.85); border:1px solid rgba(255,255,255,0.1);"></div>
+      <div class="sg-swatch-label">Black 85%<br>Title on white</div>
+    </div>
+    <div class="sg-swatch">
+      <div class="sg-swatch-block" style="background:#000; border:1px solid rgba(255,255,255,0.12);"></div>
+      <div class="sg-swatch-label">Black<br>Page bg</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ 04 BUTTONS ═══════════════════════════════════════ -->
+<div class="sg-section">
+  <div class="sg-section-label">04 — Buttons</div>
+  <p style="font-size:0.7rem; color:rgba(255,255,255,0.4); letter-spacing:0.08em; margin-bottom:24px;">
+    Pill shape (border-radius: 24px) · VT323 · 8-bit hard shadow: 4px 4px 0 (no blur) · Hover: translate(2px,2px), white fill, dark text · Active: translate(4px,4px), no shadow
+  </p>
+  <div class="sg-buttons">
+    <button class="sg-btn">Send</button>
+    <button class="sg-btn">Listen</button>
+    <button class="sg-btn">Why</button>
+    <button class="sg-btn">See All 10</button>
+    <button class="sg-btn">← View</button>
+    <button class="sg-btn">chrisalanforeman.com ↗</button>
+  </div>
+</div>
+
+<!-- ══ 05 FORM FIELDS ═══════════════════════════════════ -->
+<div class="sg-section">
+  <div class="sg-section-label">05 — Form Fields</div>
+  <p style="font-size:0.7rem; color:rgba(255,255,255,0.4); letter-spacing:0.08em; margin-bottom:24px;">
+    Transparent bg · White border 75% · Input border-radius: 24px · Textarea border-radius: 16px · Focus: white 100%
+  </p>
+  <div class="sg-form">
+    <input class="sg-input" type="text" placeholder="Your Name">
+    <input class="sg-input" type="email" placeholder="Your Email Address">
+    <textarea class="sg-textarea" rows="3" placeholder="Your Message, e.g. Simon's work caught my eye. I'd love to see his 10 MCD case studies and explore working together."></textarea>
+    <button class="sg-btn" style="width:fit-content;">Send</button>
+  </div>
+</div>
+
+<!-- ══ 06 NAV ═══════════════════════════════════════════ -->
+<div class="sg-section">
+  <div class="sg-section-label">06 — Navigation</div>
+
+  <div style="background:rgba(0,0,0,0.55); backdrop-filter:blur(12px); padding:14px 32px; display:flex; align-items:center; justify-content:space-between; border-radius:4px; margin-bottom:20px;">
+    <div style="font-family:'VT323',monospace; font-size:1.3rem; color:rgba(200,170,120,0.88); letter-spacing:0.06em; text-transform:uppercase;">SIMON FOREMAN</div>
+    <div style="display:flex; gap:1.2rem;">
+      <a href="#" style="font-family:'VT323',monospace; font-size:0.7rem; color:rgba(200,170,120,0.95); text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; text-align:center;">
+        <span style="font-family:'VT323',monospace; font-size:0.55rem; color:rgba(200,170,120,0.55); display:block;">01</span>Form
+      </a>
+      <a href="#" style="font-family:'VT323',monospace; font-size:0.7rem; color:rgba(200,170,120,0.7); text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; text-align:center;">
+        <span style="font-family:'VT323',monospace; font-size:0.55rem; color:rgba(200,170,120,0.4); display:block;">02</span>Soul
+      </a>
+      <a href="#" style="font-family:'VT323',monospace; font-size:0.7rem; color:rgba(200,170,120,0.7); text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; text-align:center;">
+        <span style="font-family:'VT323',monospace; font-size:0.55rem; color:rgba(200,170,120,0.4); display:block;">03</span>Vision
+      </a>
+      <a href="#" style="font-family:'VT323',monospace; font-size:0.7rem; color:rgba(200,170,120,0.7); text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; text-align:center;">
+        <span style="font-family:'VT323',monospace; font-size:0.55rem; color:rgba(200,170,120,0.4); display:block;">04</span>Blood
+      </a>
+      <a href="#" style="font-family:'VT323',monospace; font-size:0.7rem; color:rgba(200,170,120,0.7); text-decoration:none; letter-spacing:0.1em; text-transform:uppercase; text-align:center;">
+        <span style="font-family:'VT323',monospace; font-size:0.55rem; color:rgba(200,170,120,0.4); display:block;">05</span>Ground
+      </a>
+    </div>
+    <button class="sg-btn" style="font-size:0.55rem; padding:6px 18px;">Why</button>
+  </div>
+  <p style="font-size:0.55rem; color:rgba(255,255,255,0.3); letter-spacing:0.1em;">backdrop-filter: blur(12px) / rgba(0,0,0,0.55) desktop · blur(14px) / rgba(0,0,0,0.75) mobile</p>
+</div>
+
+<!-- ══ 07 SECTION TITLE CARD ════════════════════════════ -->
+<div class="sg-section">
+  <div class="sg-section-label">07 — Section Title Card</div>
+
+  <div style="background:#fff; border-radius:4px; padding:80px 40px; position:relative; overflow:hidden; text-align:center; margin-bottom:12px;">
+    <div style="font-family:'VT323',monospace; font-size:18vw; color:rgba(0,0,0,0.05); position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); line-height:1; pointer-events:none; font-weight:700;">01</div>
+    <div style="font-family:'VT323',monospace; font-size:2.8rem; color:rgba(0,0,0,0.85); letter-spacing:0.04em; position:relative; z-index:1; margin-bottom:12px;">10 Artworks</div>
+    <div style="font-size:0.85rem; color:rgba(0,0,0,0.55); letter-spacing:0.15em; position:relative; z-index:1;">Selected work from 2003 on. Scroll the collection, or see all 10 at once.</div>
+  </div>
+  <p style="font-size:0.55rem; color:rgba(255,255,255,0.3); letter-spacing:0.1em;">White bg / dark reversed type / ghost number rgba(0,0,0,0.05) · Alternates with #000 sections for visual rhythm</p>
+</div>
+
+<!-- ══ 08 TYPE SCALE REFERENCE TABLE ════════════════════ -->
+<div class="sg-section">
+  <div class="sg-section-label">08 — Type Scale Reference</div>
+  <table class="sg-table">
+    <thead>
+      <tr>
+        <th style="padding-right:24px;">Size</th>
+        <th style="padding-right:24px;">Font</th>
+        <th style="padding-right:24px;">Weight</th>
+        <th>Usage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>4rem</td><td>VT323</td><td>400</td><td>Hero h1 — SIMON FOREMAN</td></tr>
+      <tr><td>2.8rem</td><td>VT323</td><td>400</td><td>Section title card h2, piece title h2</td></tr>
+      <tr><td>2.6rem</td><td>VT323</td><td>400</td><td>Footer origin title "Why..."</td></tr>
+      <tr><td>2.2rem</td><td>VT323</td><td>400</td><td>Footer name</td></tr>
+      <tr><td>1.8rem</td><td>Rubik</td><td>800</td><td>Lyrics display</td></tr>
+      <tr><td>1.6rem</td><td>VT323 / Rubik</td><td>400</td><td>Hero poem, section stubs, gallery nav arrows</td></tr>
+      <tr><td>1.3rem</td><td>VT323</td><td>400</td><td>Nav SIMON FOREMAN, back-to-top label</td></tr>
+      <tr><td>1.1rem</td><td>Rubik</td><td>400</td><td>Body / work narrative / footer copy</td></tr>
+      <tr><td>0.85rem</td><td>Rubik / VT323</td><td>400–700</td><td>Descriptions, buttons, track titles</td></tr>
+      <tr><td>0.7rem</td><td>Rubik</td><td>400</td><td>Captions, nav links, timestamps, sub-labels</td></tr>
+      <tr><td>0.55rem</td><td>Rubik / VT323</td><td>400</td><td>Micro labels — artist, album, nav nums</td></tr>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
