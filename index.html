@@ -639,7 +639,7 @@ body {
     gap: 0;
   }
   #site-nav .nav-center a {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     letter-spacing: 0.1em;
     color: rgba(255,255,255,0.85);
     padding: 12px 8px;
@@ -651,7 +651,7 @@ body {
     line-height: 1;
     -webkit-tap-highlight-color: transparent;
   }
-  .nav-num { display: block; font-size: 0.7rem; opacity: 0.6; }
+  .nav-num { display: block; font-size: 0.9rem; opacity: 0.6; }
   #site-nav .nav-center a.active { color: rgba(255,255,255,0.93); }
   #subsection-nav { display: none !important; }
   #skip-arrow-wrap { display: none !important; }
@@ -691,7 +691,7 @@ body {
   }
   #mobile-pill-skip {
     padding: 0 18px;
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     font-family: 'VT323', monospace;
     justify-content: center;
   }
@@ -708,12 +708,12 @@ body {
   }
   #mobile-pill-why {
     padding: 0 22px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     font-family: 'VT323', monospace;
   }
   #mobile-pill-listen {
     padding: 0 18px;
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     justify-content: center;
   }
   .pill-listen-icon {
@@ -743,7 +743,7 @@ body {
   }
   #nav-top-label {
     font-family: 'Rubik', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 400;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -847,7 +847,7 @@ body {
   .section-title-card h2, .piece-title-screen h2 { font-size: 2.4rem; }
   .section-title-card { min-height: 55vh; padding: 72px 36px; }
   .section-title-card .ghost-num { font-size: 80vw; color: rgba(0,0,0,0.04); }
-  .section-title-card p { font-size: 1.1rem; color: rgba(0,0,0,0.55); max-width: 340px; padding: 0 20px; }
+  .section-title-card p { font-size: 1.2rem; color: rgba(0,0,0,0.55); max-width: 340px; padding: 0 20px; }
   br.desktop-only { display: none; }
   .piece-title-screen { min-height: 20vh; padding: 40px 36px; }
   .piece-title-screen p + p { font-size: 1rem; }
@@ -1416,7 +1416,7 @@ s::after {
 }
 @media (max-width: 768px) {
   #hero h1 { font-size: 3rem; text-align: center; }
-  #hero .hero-poem p { font-size: 1.3rem; white-space: normal; }
+  #hero .hero-poem p { font-size: 1.6rem; white-space: normal; }
   #hero .hero-poem { white-space: normal; text-align: center; }
   #hero .hero-scroll { font-size: 0.7rem; color: rgba(255,255,255,0.77); }
   @keyframes kaleidoscope-settle {
@@ -1945,11 +1945,11 @@ s::after {
 @media (max-width: 768px) {
   #raps-now-playing { width: 92vw; max-width: 92vw; padding: 18px 18px 16px; }
   #raps-album-art { width: 52px; height: 52px; }
-  #raps-track-title { font-size: 1.4rem; }
+  #raps-track-title { font-size: 1.6rem; }
   #raps-track-artist, #raps-track-album { font-size: 0.7rem; }
   #raps-time-display { font-size: 0.7rem; }
   #raps-play-btn { font-size: 1.1rem; width: 100%; height: 36px; }
-  #raps-keep-playing { font-size: 0.55rem; height: 36px; }
+  #raps-keep-playing { font-size: 0.85rem; height: 36px; }
   #sec-songs .ctrl-btn { font-size: 1.2rem; }
   #raps-progress-outer { margin-top: 10px; gap: 8px; }
   #raps-play-row { margin-top: 10px; gap: 8px; }
@@ -1982,13 +1982,13 @@ s::after {
   top: 0; left: 0; right: 0; bottom: 0;
   overflow-y: hidden;
   pointer-events: none;
-  padding: 20vh 18% 78vh;
+  padding: 20vh 8% 78vh;
   box-sizing: border-box;
   text-align: center;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  mask-image: radial-gradient(ellipse 54% 44% at 50% 33%, black 15%, rgba(0,0,0,0.55) 38%, transparent 65%);
-  -webkit-mask-image: radial-gradient(ellipse 54% 44% at 50% 33%, black 15%, rgba(0,0,0,0.55) 38%, transparent 65%);
+  mask-image: radial-gradient(ellipse 74% 44% at 50% 33%, black 15%, rgba(0,0,0,0.55) 38%, transparent 65%);
+  -webkit-mask-image: radial-gradient(ellipse 74% 44% at 50% 33%, black 15%, rgba(0,0,0,0.55) 38%, transparent 65%);
   opacity: 0;
   transform: translateY(24px);
   transition: opacity 1.1s ease, transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -1998,14 +1998,14 @@ s::after {
   transform: translateY(0);
 }
 .lyrics-line {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 800;
-  font-size: 1.8rem;
-  line-height: 1.75;
+  font-family: 'VT323', monospace;
+  font-weight: 400;
+  font-size: 3rem;
+  line-height: 1.2;
   color: rgba(255,255,255,0.15);
   text-align: center;
   display: block;
-  max-width: 680px;
+  max-width: 84%;
   margin-left: auto;
   margin-right: auto;
   text-wrap: balance;
@@ -2035,7 +2035,7 @@ s::after {
     mask-image: radial-gradient(ellipse 92% 30% at 50% 20%, black 5%, rgba(0,0,0,0.7) 32%, rgba(0,0,0,0.12) 56%, rgba(0,0,0,0.08) 100%);
     -webkit-mask-image: radial-gradient(ellipse 92% 30% at 50% 20%, black 5%, rgba(0,0,0,0.7) 32%, rgba(0,0,0,0.12) 56%, rgba(0,0,0,0.08) 100%);
   }
-  .lyrics-line { font-size: 1.65rem; line-height: 1.6; }
+  .lyrics-line { font-size: 2.6rem; line-height: 1.2; }
   .lyrics-line.lyrics-active { transform: scale(1.08); }
   .lyrics-toggle-btn { font-size: 0.7rem; padding: 6px 16px; }
 }
@@ -2614,16 +2614,16 @@ s::after {
   margin-bottom: 20px;
 }
 .footer-dad-name {
-  font-family: 'Rubik', sans-serif;
-  font-size: 1.1rem;
+  font-family: 'VT323', monospace;
+  font-size: 1.6rem;
   font-weight: 400;
   color: rgba(255,255,255,0.85);
   letter-spacing: 0.08em;
   margin-bottom: 8px;
 }
 .footer-dad-subtitle {
-  font-family: 'VT323', monospace;
-  font-size: 1.1rem;
+  font-family: 'Rubik', sans-serif;
+  font-size: 0.85rem;
   font-style: normal;
   color: rgba(255,255,255,0.65);
   letter-spacing: 0.06em;
@@ -2631,14 +2631,6 @@ s::after {
   max-width: 340px;
   text-align: center;
   line-height: 1.4;
-}
-.footer-dad-desc {
-  font-family: 'Rubik', sans-serif;
-  font-weight: 400;
-  font-size: 0.85rem;
-  color: rgba(255,255,255,0.82);
-  line-height: 1.7;
-  margin-bottom: 14px;
 }
 .footer-dad-link {
   display: inline-block;
@@ -2816,17 +2808,17 @@ s::after {
   .footer-cta-text { font-size: 1.1rem; padding: 0 8px; }
   .footer-contact { flex-direction: column; gap: 32px; border-top: 1px solid rgba(200,170,120,0.12); padding-top: 28px; margin-top: 8px; }
   .footer-dad-photo { width: 80px; height: 80px; }
-  .footer-contact-label { font-size: 1.3rem; }
+  .footer-contact-label { font-size: 1.2rem; }
   .footer-contact-link { font-size: 1rem; }
-  .footer-dad-desc { font-size: 1.1rem; }
+  .footer-dad-subtitle { font-size: 1.1rem; }
   .footer-dad-link { font-size: 0.85rem; padding: 14px 28px; }
   #p10 .memorial-section .memorial-link { font-size: 0.85rem; padding: 14px 28px; }
-  .p11-trigger-btn { font-size: 1.1rem; }
-  .piece-title-screen p.p11-desc { font-size: 1.15rem !important; line-height: 1.9 !important; max-width: 100% !important; color: rgba(255,255,255,0.80) !important; white-space: normal !important; }
-  .piece-title-screen p.p11-details { font-size: 1.05rem !important; color: rgba(255,255,255,0.85) !important; }
+  .p11-trigger-btn { font-size: 1.2rem; }
+  .piece-title-screen p.p11-desc { font-size: 1.2rem !important; line-height: 1.9 !important; max-width: 100% !important; color: rgba(255,255,255,0.80) !important; white-space: normal !important; }
+  .piece-title-screen p.p11-details { font-size: 1.2rem !important; color: rgba(255,255,255,0.85) !important; }
   .vibecoded-archive-link { font-size: 0.85rem; padding: 14px 28px; }
-  .footer-dad-name { font-size: 1.3rem; }
-  .footer-dedication { font-size: 1.1rem; }
+  .footer-dad-name { font-size: 1.2rem; }
+  .footer-dedication { font-size: 1.2rem; }
   .footer-origin { max-width: 100%; }
   .footer-origin-photos { gap: 6px; width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; }
   .origin-row { display: contents; }
@@ -3063,7 +3055,7 @@ s::after {
 .pw-request-msg {
   font-family: 'Rubik', sans-serif;
   font-weight: 400;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: rgba(255,255,255,0.82);
   margin-top: 10px;
   text-align: left;
@@ -3097,7 +3089,7 @@ s::after {
 .work-inquiry-or {
   font-family: 'Rubik', sans-serif;
   font-weight: 400;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   color: rgba(255,255,255,0.65);
   letter-spacing: 0.04em;
   margin-bottom: 12px;
@@ -3273,13 +3265,13 @@ s::after {
   color: rgba(255,255,255,0.93);
 }
 .work-blog-date {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   letter-spacing: 0.12em;
   color: rgba(255,255,255,0.62);
   margin-bottom: 8px;
 }
 .work-blog-meta {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   line-height: 1.6;
   color: rgba(255,255,255,0.80);
 }
@@ -4874,7 +4866,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <div id="title-songs" class="section-title-card">
   <span class="ghost-num">02</span>
   <h2>10 Songs</h2>
-  <p>Selects recorded in Marin County, CA and NYC.</p>
+  <p>Selects recorded in Marin County, CA<br class="desktop-only"> and NYC.</p>
 </div>
 
 <section id="sec-songs" class="site-section">
@@ -5061,7 +5053,7 @@ document.addEventListener('DOMContentLoaded', function() {
       </div>
     </div>
     <p class="footer-origin-text">I wanted to create a record. Snapshots from a kaleidoscope — ten facets from five lenses of a life lived and still living. <a id="vibecoded-link" class="vibecoded-link">New tools</a> made it possible for prospective clients, collaborators, and friends to get a little closer to me.</p>
-    <p class="footer-origin-text footer-origin-text-left">I am an artist and a creative leader. The longer I've been both, the more I believe the same thing about everyone who makes anything: we're all <s>broken</s>. Not broken as in defeated. Broken as in open, and humbled enough to believe broken things can be fixed. This gift, like all good gifts, comes from the Maker of makers.</p>
+    <p class="footer-origin-text footer-origin-text-left">I am an artist and a creative leader. The longer I've been both, the more I believe the same thing about everyone who makes anything: we're all <s>broken</s>. Not broken as in defeated. Broken as in open, and able to see that things can be fixed. This gift, like all good gifts, comes from the Maker of makers.</p>
   </div>
 
   <!-- Simon contact card -->
