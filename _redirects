@@ -1,0 +1,7 @@
+# Redirect http to https and non-www to www
+https://simonforeman.com/* https://www.simonforeman.com/:splat 301
+http://simonforeman.com/* https://www.simonforeman.com/:splat 301
+http://www.simonforeman.com/* https://www.simonforeman.com/:splat 301
+
+# Redirect /index.html to /
+/index.html / 301
