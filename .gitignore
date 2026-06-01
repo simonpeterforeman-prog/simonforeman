@@ -19,3 +19,8 @@ memory/
 
 # Deploy folder (built from source, not tracked)
 deploy/
+
+# Large backup files (exceed Cloudflare Pages 25MB limit)
+work/case_studies/cs_deploy_bak/
+work/Hollow+Heart_Loud+Pipes.mp3
+work/Second+Born_Nostrand.mp3
